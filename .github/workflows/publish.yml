@@ -18,6 +18,7 @@ on:
 permissions:
   contents: write # push the tag and create the GitHub Release
   id-token: write # NuGet.org Trusted Publishing (OIDC)
+  packages: write # GitHub Packages (repository "Packages" section)
 
 concurrency:
   group: release
@@ -88,6 +89,11 @@ jobs:
 
       - name: Publish to NuGet.org
         run: dotnet nuget push "artifacts/*.nupkg" --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: Publish to GitHub Packages
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key "$GITHUB_TOKEN" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --skip-duplicate
 
       - name: GitHub Release
         env:
