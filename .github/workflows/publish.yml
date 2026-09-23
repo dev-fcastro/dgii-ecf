@@ -68,7 +68,7 @@ jobs:
           dotnet test DgiiEcf.slnx -c Release --no-build
 
       - name: Pack
-        run: dotnet pack src/packaging/sdk/sdk.csproj -c Release --no-build -o artifacts
+        run: dotnet pack src/packaging/sdk/sdk.csproj -c Release -o artifacts
 
       - name: Resolve version
         id: version
