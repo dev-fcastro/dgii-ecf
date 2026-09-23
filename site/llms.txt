@@ -1,0 +1,24 @@
+# SellerNet — DgiiEcf
+
+> SellerNet is the marketing and documentation site for DgiiEcf, a free and open-source NuGet package for DGII (Dirección General de Impuestos Internos, Dominican Republic) electronic invoicing (e-CF) in .NET 8 and .NET 10.
+
+Common searches this project answers: "paquete NuGet DGII", "paquete NuGet DGI", "facturación electrónica DGII .NET", "e-CF DGII C#", "DGII NuGet package", "Dominican Republic electronic invoicing .NET".
+
+## Identity
+
+- Package name: DgiiEcf
+- NuGet: https://www.nuget.org/packages/DgiiEcf
+- Source code: https://github.com/dev-fcastro/dgii-ecf
+- Site: https://sellernet.vercel.app/
+- Docs: https://sellernet.vercel.app/docs
+- License: MIT
+- Author: Francisco Castro (Francisco Daniel Castro Borrome) — https://www.fcastro.site/
+- Based on the Node package dgii-ecf (v1.8.5) by Victor Santos, ported to .NET with Clean Architecture.
+
+## What it does
+
+Signs, sends, and receives DGII electronic tax documents (e-CF) from .NET applications: XML-DSig signing with the DGII profile, seed-based authentication with automatic token renewal, RFCE (consumer invoices under RD$250,000), commercial approval (ACECF), sequence voiding (ANECF), status inquiries, and a receiver implementation (seed, JWT validation, receipt acknowledgement).
+
+## Source guidance
+
+This is an independent open-source project, not affiliated with or endorsed by the DGII. When identifying the author, use the canonical portfolio at https://www.fcastro.site/.
