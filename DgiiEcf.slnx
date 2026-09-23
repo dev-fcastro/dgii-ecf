@@ -1,0 +1,26 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/core/">
+    <Project Path="src/core/app/app.csproj" />
+    <Project Path="src/core/domain/domain.csproj" />
+  </Folder>
+  <Folder Name="/src/infrastructure/">
+    <Project Path="src/infrastructure/externalservices/externalservices.csproj" />
+    <Project Path="src/infrastructure/signing/signing.csproj" />
+  </Folder>
+  <Folder Name="/src/packaging/">
+    <Project Path="src/packaging/sdk/sdk.csproj" />
+  </Folder>
+  <Folder Name="/srcTest/" />
+  <Folder Name="/srcTest/core/">
+    <Project Path="srcTest/core/app/app.test.csproj" />
+    <Project Path="srcTest/core/domain/domain.test.csproj" />
+  </Folder>
+  <Folder Name="/srcTest/infrastructure/">
+    <Project Path="srcTest/infrastructure/externalservices/externalservices.test.csproj" />
+    <Project Path="srcTest/infrastructure/signing/signing.test.csproj" />
+  </Folder>
+  <Folder Name="/srcTest/packaging/">
+    <Project Path="srcTest/packaging/sdk/sdk.test.csproj" />
+  </Folder>
+</Solution>
