@@ -1,4 +1,5 @@
 using DgiiEcf.Application.Common.Contracts.IJwtTokenService;
+using DgiiEcf.Application.Features.Receiver.Common;
 using DgiiEcf.Application.Features.Receiver.ValidateSignedSeed;
 using DgiiEcf.Application.Features.Receiver.ValidateToken.Contracts;
 using DgiiEcf.Domain.Common.Results;
@@ -26,7 +27,7 @@ public sealed class ValidateTokenHandler : IValidateTokenHandler
 
         if (string.IsNullOrEmpty(token))
         {
-            return ReceiverErrors.ReceiverErrors.EmptyToken;
+            return ReceiverErrors.EmptyToken;
         }
 
         var validation = _jwtTokenService.Validate(token);

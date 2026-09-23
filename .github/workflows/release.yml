@@ -1,0 +1,94 @@
+name: Release
+
+# Two ways to release:
+#  - Actions > Release > Run workflow, choosing patch / minor / major: the next vX.Y.Z tag is computed and pushed.
+#  - Pushing a tag by hand: git tag v1.2.3 && git push origin v1.2.3
+# The package version always comes from the tag (MinVer).
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Parte de la versión a incrementar
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compute and push next tag
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          BUMP: ${{ inputs.bump }}
+        run: |
+          latest=$(git tag --list 'v*.*.*' --sort=-v:refname | head -n 1)
+          latest=${latest:-v0.0.0}
+          IFS='.' read -r major minor patch <<< "${latest#v}"
+          case "$BUMP" in
+            major) major=$((major + 1)); minor=0; patch=0 ;;
+            minor) minor=$((minor + 1)); patch=0 ;;
+            *)     patch=$((patch + 1)) ;;
+          esac
+          next="v${major}.${minor}.${patch}"
+          echo "Latest: $latest -> Next: $next"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$next" -m "Release $next"
+          git push origin "$next"
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - name: Build and test
+        run: |
+          dotnet restore DgiiEcf.slnx
+          dotnet build DgiiEcf.slnx -c Release --no-restore
+          dotnet test DgiiEcf.slnx -c Release --no-build
+
+      - name: Pack
+        run: dotnet pack src/packaging/sdk/sdk.csproj -c Release --no-build -o artifacts
+
+      - name: Resolve version
+        id: version
+        run: |
+          file=$(ls artifacts/DgiiEcf.*.nupkg | grep -v '\.snupkg$' | head -n 1)
+          version=$(basename "$file" .nupkg); version=${version#DgiiEcf.}
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Package version: $version"
+
+      - name: Publish to NuGet.org
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          if [ -z "$NUGET_API_KEY" ]; then
+            echo "::warning::NUGET_API_KEY no está configurado; se omite la publicación en NuGet.org."
+            exit 0
+          fi
+          dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: gh release create "v$VERSION" artifacts/* --title "v$VERSION" --generate-notes --verify-tag

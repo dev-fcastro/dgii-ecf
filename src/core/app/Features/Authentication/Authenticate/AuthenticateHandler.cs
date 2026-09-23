@@ -2,8 +2,8 @@ using DgiiEcf.Application.Common.Contracts.IAccessTokenStore;
 using DgiiEcf.Application.Common.Contracts.IDgiiAuthenticationClient;
 using DgiiEcf.Application.Common.Contracts.IXmlDocumentSigner;
 using DgiiEcf.Application.Common.Responses.AccessToken;
-using DgiiEcf.Application.Features.Authentication.AccessTokenAudience;
 using DgiiEcf.Application.Features.Authentication.Authenticate.Contracts;
+using DgiiEcf.Application.Features.Authentication.Common;
 using DgiiEcf.Domain.Common.Results;
 
 namespace DgiiEcf.Application.Features.Authentication.Authenticate;

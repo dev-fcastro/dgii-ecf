@@ -1,8 +1,8 @@
 using DgiiEcf.Application.Common.Contracts.IDgiiQueryClient;
 using DgiiEcf.Application.Common.Responses.TrackingStatusResponse;
 using DgiiEcf.Application.Features.Authentication.AccessTokenProvider.Contracts;
+using DgiiEcf.Application.Features.Queries.Common;
 using DgiiEcf.Application.Features.Queries.GetTrackStatus.Contracts;
-using DgiiEcf.Application.Features.Queries.QueryErrors;
 using DgiiEcf.Domain.Common.Results;
 
 namespace DgiiEcf.Application.Features.Queries.GetTrackStatus;

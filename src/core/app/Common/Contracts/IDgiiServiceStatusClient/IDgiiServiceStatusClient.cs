@@ -8,7 +8,7 @@ namespace DgiiEcf.Application.Common.Contracts.IDgiiServiceStatusClient;
 /// </summary>
 public interface IDgiiServiceStatusClient
 {
-    Task<Result<IReadOnlyList<ServiceStatus>>> GetServicesStatusAsync(string apiKey, CancellationToken cancellationToken);
+    Task<Result<IReadOnlyList<DgiiServiceStatus>>> GetServicesStatusAsync(string apiKey, CancellationToken cancellationToken);
 
     Task<Result<MaintenanceResponse>> GetMaintenanceWindowsAsync(string apiKey, CancellationToken cancellationToken);
 

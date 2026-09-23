@@ -9,5 +9,5 @@ public interface ISignDocumentHandler
     /// <summary>
     /// Serializes a typed document (<c>DgiiEcf.Domain.Documents.*</c>) and signs it.
     /// </summary>
-    Result<string> Handle<TDocument>(TDocument document) where TDocument : class;
+    Result<string> HandleDocument<TDocument>(TDocument document) where TDocument : class;
 }

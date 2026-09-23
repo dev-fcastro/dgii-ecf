@@ -5,5 +5,5 @@ namespace DgiiEcf.Application.Features.ServiceStatus.GetServicesStatus.Contracts
 
 public interface IGetServicesStatusHandler
 {
-    Task<Result<IReadOnlyList<ServiceStatus>>> HandleAsync(GetServicesStatusQuery query, CancellationToken cancellationToken = default);
+    Task<Result<IReadOnlyList<DgiiServiceStatus>>> HandleAsync(GetServicesStatusQuery query, CancellationToken cancellationToken = default);
 }

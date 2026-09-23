@@ -4,7 +4,7 @@ using DgiiEcf.Domain.Common.Results;
 namespace DgiiEcf.Application.Common.Contracts.IDgiiAuthenticationClient;
 
 /// <summary>
-/// Seed based authentication against DGII or against a receiver (<paramref name="buyerHost"/>).
+/// Seed based authentication against DGII or, when <c>buyerHost</c> is set, against a receiver.
 /// </summary>
 public interface IDgiiAuthenticationClient
 {

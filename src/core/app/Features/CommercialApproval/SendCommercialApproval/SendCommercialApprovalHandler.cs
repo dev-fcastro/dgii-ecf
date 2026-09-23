@@ -2,7 +2,7 @@ using DgiiEcf.Application.Common.Contracts.IDgiiReceptionClient;
 using DgiiEcf.Application.Common.Responses.CommercialApprovalResponse;
 using DgiiEcf.Application.Features.Authentication.AccessTokenProvider.Contracts;
 using DgiiEcf.Application.Features.CommercialApproval.SendCommercialApproval.Contracts;
-using DgiiEcf.Application.Features.Reception.SignedDocumentGuard;
+using DgiiEcf.Application.Features.Reception.Common;
 using DgiiEcf.Domain.Common.Results;
 
 namespace DgiiEcf.Application.Features.CommercialApproval.SendCommercialApproval;

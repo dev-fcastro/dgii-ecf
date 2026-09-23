@@ -1,8 +1,8 @@
 using DgiiEcf.Application.Common.Contracts.IDgiiQueryClient;
 using DgiiEcf.Application.Common.Responses.CustomerDirectoryEntry;
 using DgiiEcf.Application.Features.Authentication.AccessTokenProvider.Contracts;
+using DgiiEcf.Application.Features.Queries.Common;
 using DgiiEcf.Application.Features.Queries.GetCustomerDirectory.Contracts;
-using DgiiEcf.Application.Features.Queries.QueryErrors;
 using DgiiEcf.Domain.Common.Results;
 
 namespace DgiiEcf.Application.Features.Queries.GetCustomerDirectory;

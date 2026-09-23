@@ -1,8 +1,8 @@
 using DgiiEcf.Application.Common.Contracts.IDgiiReceptionClient;
 using DgiiEcf.Application.Common.Responses.InvoiceResponse;
 using DgiiEcf.Application.Features.Authentication.AccessTokenProvider.Contracts;
+using DgiiEcf.Application.Features.Reception.Common;
 using DgiiEcf.Application.Features.Reception.SendElectronicDocument.Contracts;
-using DgiiEcf.Application.Features.Reception.SignedDocumentGuard;
 using DgiiEcf.Domain.Common.Results;
 
 namespace DgiiEcf.Application.Features.Reception.SendElectronicDocument;

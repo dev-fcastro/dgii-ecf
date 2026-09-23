@@ -1,6 +1,6 @@
 using DgiiEcf.Domain.Common.Results;
 
-namespace DgiiEcf.Application.Features.Queries.QueryErrors;
+namespace DgiiEcf.Application.Features.Queries.Common;
 
 public static class QueryErrors
 {

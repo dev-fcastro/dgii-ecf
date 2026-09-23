@@ -1,6 +1,6 @@
 using DgiiEcf.Application.Common.Contracts.IDgiiServiceStatusClient;
 using DgiiEcf.Application.Common.Responses.ServiceStatus;
-using DgiiEcf.Application.Features.Queries.QueryErrors;
+using DgiiEcf.Application.Features.Queries.Common;
 using DgiiEcf.Application.Features.ServiceStatus.VerifyServiceStatus.Contracts;
 using DgiiEcf.Domain.Common.Results;
 

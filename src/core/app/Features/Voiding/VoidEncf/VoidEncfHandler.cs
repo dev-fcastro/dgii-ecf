@@ -1,7 +1,7 @@
 using DgiiEcf.Application.Common.Contracts.IDgiiReceptionClient;
 using DgiiEcf.Application.Common.Responses.VoidEncfResponse;
 using DgiiEcf.Application.Features.Authentication.AccessTokenProvider.Contracts;
-using DgiiEcf.Application.Features.Reception.SignedDocumentGuard;
+using DgiiEcf.Application.Features.Reception.Common;
 using DgiiEcf.Application.Features.Voiding.VoidEncf.Contracts;
 using DgiiEcf.Domain.Common.Results;
 

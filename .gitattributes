@@ -2,3 +2,6 @@
 *.p12 binary
 *.pfx binary
 *.png binary
+
+# Test vectors are compared byte for byte (BOM, CRLF and signatures must survive checkout).
+srcTest/**/Samples/** -text

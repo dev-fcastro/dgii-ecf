@@ -13,6 +13,7 @@
     <PackageReference Include="coverlet.collector" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
@@ -22,6 +23,10 @@
 
   <ItemGroup>
     <ProjectReference Include="../../../src/packaging/sdk/sdk.csproj" />
+    <ProjectReference Include="../../../src/core/domain/domain.csproj" />
+    <ProjectReference Include="../../../src/core/app/app.csproj" />
+    <ProjectReference Include="../../../src/infrastructure/signing/signing.csproj" />
+    <ProjectReference Include="../../../src/infrastructure/externalservices/externalservices.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -480,3 +480,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Claude Code plan file
+https-github-com-victors1681-dgii-ecf-gi-nested-owl.md

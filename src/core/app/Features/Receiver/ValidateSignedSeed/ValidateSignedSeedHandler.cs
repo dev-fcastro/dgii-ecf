@@ -3,6 +3,7 @@ using DgiiEcf.Application.Common.Contracts.IJwtTokenService;
 using DgiiEcf.Application.Common.Contracts.ISignatureVerifier;
 using DgiiEcf.Application.Common.Responses.AccessToken;
 using DgiiEcf.Application.Common.Xml.XmlDocumentLoader;
+using DgiiEcf.Application.Features.Receiver.Common;
 using DgiiEcf.Application.Features.Receiver.ValidateSignedSeed.Contracts;
 using DgiiEcf.Domain.Common.Results;
 
@@ -40,13 +41,13 @@ public sealed class ValidateSignedSeedHandler : IValidateSignedSeedHandler
 
         if (loaded.Value.Root!.Name.LocalName != "SemillaModel")
         {
-            return ReceiverErrors.ReceiverErrors.NotASeed;
+            return ReceiverErrors.NotASeed;
         }
 
         var valor = XmlDocumentLoader.FindFirst(loaded.Value, "valor")?.Value.Trim();
         if (string.IsNullOrEmpty(valor))
         {
-            return ReceiverErrors.ReceiverErrors.SeedValueMissing;
+            return ReceiverErrors.SeedValueMissing;
         }
 
         var verification = _signatureVerifier.Verify(command.SignedSeedXml);
@@ -57,7 +58,7 @@ public sealed class ValidateSignedSeedHandler : IValidateSignedSeedHandler
 
         if (!verification.Value.IsValid)
         {
-            return ReceiverErrors.ReceiverErrors.InvalidSeedSignature;
+            return ReceiverErrors.InvalidSeedSignature;
         }
 
         var issuedAt = _timeProvider.GetUtcNow();

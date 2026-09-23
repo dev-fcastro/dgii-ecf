@@ -25,7 +25,7 @@ public sealed class SignDocumentHandler : ISignDocumentHandler
         return _signer.Sign(command.Xml, command.RootElementName);
     }
 
-    public Result<string> Handle<TDocument>(TDocument document) where TDocument : class
+    public Result<string> HandleDocument<TDocument>(TDocument document) where TDocument : class
     {
         ArgumentNullException.ThrowIfNull(document);
 

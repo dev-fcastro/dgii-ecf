@@ -1,6 +1,6 @@
 using DgiiEcf.Application.Common.Contracts.IDgiiServiceStatusClient;
 using DgiiEcf.Application.Common.Responses.ServiceStatus;
-using DgiiEcf.Application.Features.Queries.QueryErrors;
+using DgiiEcf.Application.Features.Queries.Common;
 using DgiiEcf.Application.Features.ServiceStatus.GetServicesStatus.Contracts;
 using DgiiEcf.Domain.Common.Results;
 
@@ -15,7 +15,7 @@ public sealed class GetServicesStatusHandler : IGetServicesStatusHandler
         _client = client;
     }
 
-    public async Task<Result<IReadOnlyList<ServiceStatus>>> HandleAsync(GetServicesStatusQuery query, CancellationToken cancellationToken = default)
+    public async Task<Result<IReadOnlyList<DgiiServiceStatus>>> HandleAsync(GetServicesStatusQuery query, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(query.ApiKey))
         {

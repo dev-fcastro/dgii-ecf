@@ -1,9 +1,9 @@
 using DgiiEcf.Application.Common.Contracts.IAccessTokenStore;
 using DgiiEcf.Application.Common.Errors.DgiiApiError;
-using DgiiEcf.Application.Features.Authentication.AccessTokenAudience;
 using DgiiEcf.Application.Features.Authentication.AccessTokenProvider.Contracts;
 using DgiiEcf.Application.Features.Authentication.Authenticate;
 using DgiiEcf.Application.Features.Authentication.Authenticate.Contracts;
+using DgiiEcf.Application.Features.Authentication.Common;
 using DgiiEcf.Domain.Common.Results;
 
 namespace DgiiEcf.Application.Features.Authentication.AccessTokenProvider;
