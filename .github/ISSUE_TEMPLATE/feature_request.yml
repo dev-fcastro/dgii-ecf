@@ -1,0 +1,22 @@
+name: Solicitud de mejora
+description: Propón una funcionalidad o mejora
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema o necesidad
+      description: Qué intentas lograr y por qué hoy no es posible o es incómodo.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Cómo te gustaría que funcionara. Incluye un ejemplo de API si puedes.
+      render: csharp
+  - type: textarea
+    id: reference
+    attributes:
+      label: Referencia DGII
+      description: Enlace a la documentación técnica, XSD o norma relacionada, si aplica.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Preguntas y dudas de uso
+    url: https://github.com/dev-fcastro/dgii-ecf/discussions
+    about: Para preguntas sobre cómo usar el paquete, usa Discussions.
+  - name: Documentación
+    url: https://sellernet.vercel.app/#docs
+    about: Guía de instalación, configuración, emisor, receptor y herramientas.
