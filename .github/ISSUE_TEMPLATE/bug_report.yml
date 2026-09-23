@@ -1,0 +1,69 @@
+name: Reporte de error
+description: Algo no funciona como se espera
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar. **No incluyas certificados, contraseñas, tokens ni RNC reales** en este formulario.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - Autenticación
+        - Firma XML
+        - Recepción (e-CF / RFCE)
+        - Aprobación comercial (ACECF)
+        - Anulación (ANECF)
+        - Consultas
+        - Receptor
+        - Estatus de servicios
+        - Otra
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Ambiente DGII
+      options:
+        - Test (TesteCF)
+        - Certification (CerteCF)
+        - Production (eCF)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión de DgiiEcf
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Target framework
+      options:
+        - net8.0
+        - net10.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Qué pasó
+      description: Qué esperabas y qué ocurrió en su lugar.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Cómo reproducirlo
+      description: Código mínimo y pasos.
+      render: csharp
+  - type: textarea
+    id: response
+    attributes:
+      label: Respuesta de la DGII / error
+      description: "`Error.Message`, `Status` y `RawBody` si aplica (sin datos sensibles)."
+      render: text

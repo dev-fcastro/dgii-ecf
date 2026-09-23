@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tributo · Facturación electrónica DGII para .NET</title>
-<meta name="description" content="DgiiEcf: paquete NuGet gratuito y open source para la facturación electrónica (e-CF) de la DGII de República Dominicana en .NET 8 y .NET 10. Firma XML-DSig, envío, consultas, RFCE y receptor.">
-<meta property="og:title" content="Tributo · e-CF DGII para .NET">
+<title>SellerNet · Facturación electrónica DGII para .NET</title>
+<meta name="description" content="SellerNet: paquete NuGet gratuito y open source para la facturación electrónica (e-CF) de la DGII de República Dominicana en .NET 8 y .NET 10. Firma XML-DSig, envío, consultas, RFCE y receptor.">
+<meta property="og:title" content="SellerNet · e-CF DGII para .NET">
 <meta property="og:description" content="Firma, envía y recibe comprobantes fiscales electrónicos de la DGII desde .NET con un solo paquete NuGet.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -70,7 +70,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(243,247,251,.9);backdrop
 .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.5rem}
 .logo{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.3rem;letter-spacing:-.02em}
 .logo svg{width:34px;height:34px}
-.logo small{font-family:var(--mono);font-weight:400;font-size:.7rem;color:var(--muted);letter-spacing:0;border:1px solid var(--paper-2);padding:.1rem .4rem;background:#fff}
+.logo em{font-style:normal;color:var(--navy)}
+.foot-logo em{font-style:normal;color:var(--sky)}
 .nav ul{display:flex;gap:2rem;list-style:none}
 .nav ul a{font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;position:relative}
 .nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .3s}
@@ -200,9 +201,42 @@ footer{background:var(--ink);color:#fff}
 .foot-nav a{opacity:.8;font-size:.92rem}
 .foot-nav a:hover{opacity:1;text-decoration:underline}
 .foot-logo{padding:0 1.5rem 1.2rem;overflow:hidden}
-.foot-logo span{display:block;font-size:clamp(4rem,23.5vw,19rem);font-weight:700;line-height:.8;letter-spacing:-.06em;text-transform:uppercase;color:var(--navy);transform:translateY(12%)}
+.foot-logo span{display:block;font-size:clamp(3.2rem,18.2vw,14.8rem);font-weight:700;line-height:.8;letter-spacing:-.06em;text-transform:uppercase;color:var(--navy);transform:translateY(12%)}
 footer .frame::before,footer .frame::after{background:repeating-linear-gradient(to bottom,rgba(255,255,255,.35) 0 3px,transparent 3px 6px)}
 footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.35) 0 3px,transparent 3px 6px)}
+
+/* ---------- docs ---------- */
+[id]{scroll-margin-top:5.5rem}
+.docs-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;padding:clamp(2rem,5vw,4rem) 1.5rem 2rem}
+.docs-head p{max-width:30rem}
+.docs-head code,.doc code{font-family:var(--mono);font-size:.82em;text-transform:none;letter-spacing:0}
+.docs{display:grid;grid-template-columns:260px 1fr}
+.docs>*{min-width:0}
+.docs-nav{position:sticky;top:5rem;align-self:start;display:flex;flex-direction:column;padding:2rem 1.5rem}
+.docs::before{content:"";grid-column:1;grid-row:1;border-right:1px dashed var(--line);pointer-events:none}
+.docs-nav{grid-column:1;grid-row:1}
+.docs-nav a{display:flex;gap:.8rem;align-items:baseline;padding:.45rem 0;font-size:.92rem;opacity:.5;transition:opacity .2s,color .2s}
+.docs-nav a span{font-family:var(--mono);font-size:.7rem}
+.docs-nav a:hover{opacity:1}
+.docs-nav a.on{opacity:1;color:var(--navy);font-weight:700}
+.docs-body{grid-column:2;grid-row:1}
+.doc{position:relative;padding:clamp(2rem,4vw,3rem) clamp(1.2rem,3vw,2.5rem);display:flex;flex-direction:column;gap:1.1rem;max-width:52rem}
+.doc + .doc{border-top:1px dashed var(--line)}
+.doc-num{font-family:var(--mono);font-size:.75rem;color:var(--navy)}
+.doc h3{font-size:clamp(1.6rem,2.6vw,2.3rem);line-height:1;text-transform:uppercase;letter-spacing:-.03em;margin-top:-.4rem}
+.doc p code,.doc li code,.doc td code{background:rgba(0,72,128,.08);padding:.08rem .35rem;color:var(--navy)}
+.doc .window{background:var(--ink)}
+.doc .window pre{font-size:.78rem}
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.doc-list li{padding-left:1.2rem;position:relative}
+.doc-list li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--sky)}
+.doc-table{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border:1px solid var(--paper-2)}
+.doc-table th{text-align:left;font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;background:var(--navy);color:#fff;padding:.6rem .8rem}
+.doc-table td{padding:.6rem .8rem;border-top:1px dashed rgba(10,26,43,.25);vertical-align:top}
+.note{background:#fff;border-left:3px solid var(--navy);padding:.8rem 1rem;font-size:.92rem}
+.link{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.disclaimer a{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.hero-kicker a:hover b{color:var(--navy)}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -226,6 +260,15 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
   .op:not(:nth-child(3n)){border-right:0}
   .op:nth-child(odd){border-right:1px dashed var(--line-w)}
   .foot-nav{grid-template-columns:1fr 1fr}
+  .docs{grid-template-columns:1fr}
+  .docs::before{display:none}
+  .docs-nav{grid-column:1;grid-row:1;flex-direction:row;overflow-x:auto;gap:1.2rem;padding:.8rem 1.5rem;background:rgba(243,247,251,.95);backdrop-filter:blur(10px);border-bottom:1px dashed var(--line);z-index:5;scrollbar-width:none;top:4.6rem}
+  .docs-nav a{white-space:nowrap}
+  .docs-body{grid-column:1;grid-row:2}
+  .doc{max-width:none}
+}
+@media (max-width:600px){
+  .doc-table{display:block;overflow-x:auto}
 }
 @media (max-width:600px){
   .works{grid-template-columns:1fr}
@@ -259,7 +302,7 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
 <header>
   <div class="frame">
     <nav class="nav" aria-label="Principal">
-      <a href="#" class="logo" aria-label="Tributo, inicio"><svg><use href="#logo"/></svg>Tributo <small>DgiiEcf</small></a>
+      <a href="#" class="logo" aria-label="SellerNet, inicio"><svg><use href="#logo"/></svg><span>Seller<em>Net</em></span></a>
       <ul>
         <li><a href="#capacidades">Capacidades</a></li>
         <li><a href="#como">Cómo funciona</a></li>
@@ -295,7 +338,7 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
           <span class="ln" style="--i:2"><em>Cumple.</em></span>
         </h1>
         <div class="hero-kicker">
-          <span><b>DgiiEcf</b> · paquete NuGet</span>
+          <span>Paquete NuGet <b>DgiiEcf</b></span>
           <span><b>.NET 8</b> + <b>.NET 10</b></span>
           <span>Licencia <b>MIT</b></span>
           <span>e-CF · DGII · República Dominicana</span>
@@ -412,7 +455,7 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
   <section id="como">
     <div class="frame">
       <div class="stack">
-        <div class="stack-title"><div>DgiiEcf no cambia tu arquitectura. <span>Se conecta a ella.</span></div></div>
+        <div class="stack-title"><div>SellerNet no cambia tu arquitectura. <span>Se conecta a ella.</span></div></div>
         <div class="cards">
           <article class="card">
             <div class="num"><span>01</span><span>appsettings.json</span></div>
@@ -446,7 +489,7 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
     <div class="frame">
       <div class="effect">
         <div class="effect-intro">
-          <h2 class="h2 reveal">El efecto DgiiEcf</h2>
+          <h2 class="h2 reveal">El efecto SellerNet</h2>
           <p class="caps muted">Menos código de integración, cero dependencias de terceros para firmar y un solo lugar donde vive todo lo que la DGII te exige. Port fiel del paquete Node <b>dgii-ecf</b>, con Clean Architecture.</p>
         </div>
         <div class="effect-grid">
@@ -482,13 +525,202 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
     </div>
   </section>
 
+  <!-- DOCUMENTACION -->
+  <section id="docs">
+    <div class="frame">
+      <div class="docs-head">
+        <h2 class="h2 reveal">Documentación</h2>
+        <p class="caps muted">Todo lo que necesitas para pasar de <code>dotnet add package</code> a tu primer e-CF aceptado en TesteCF.</p>
+      </div>
+    </div>
+    <div class="h-rule"></div>
+    <div class="frame">
+      <div class="docs">
+        <nav class="docs-nav" aria-label="Documentación">
+          <a href="#d-instalacion"><span>01</span>Instalación</a>
+          <a href="#d-configuracion"><span>02</span>Configuración</a>
+          <a href="#d-registro"><span>03</span>Registro</a>
+          <a href="#d-resultados"><span>04</span>Resultados y errores</a>
+          <a href="#d-emisor"><span>05</span>Emisor</a>
+          <a href="#d-consumo"><span>06</span>Factura de consumo</a>
+          <a href="#d-receptor"><span>07</span>Receptor</a>
+          <a href="#d-herramientas"><span>08</span>Herramientas</a>
+          <a href="#d-node"><span>09</span>Diferencias con Node</a>
+        </nav>
+        <div class="docs-body">
+
+          <article class="doc" id="d-instalacion">
+            <span class="doc-num">01</span>
+            <h3>Instalación</h3>
+            <p>Requiere <b>.NET 8</b> o <b>.NET 10</b>. Es un solo paquete: emisor, receptor, firma y herramientas vienen juntos.</p>
+            <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>terminal</b></div>
+<pre>dotnet add package DgiiEcf</pre></div>
+          </article>
+
+          <article class="doc" id="d-configuracion">
+            <span class="doc-num">02</span>
+            <h3>Configuración</h3>
+            <p>Agrega la sección <code>DgiiEcf</code> a tu <code>appsettings.json</code>:</p>
+            <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>appsettings.json</b></div>
+<pre>{
+  <span class="s">"DgiiEcf"</span>: {
+    <span class="s">"Environment"</span>: <span class="s">"Test"</span>,
+    <span class="s">"StatusApiKey"</span>: <span class="k">null</span>,
+    <span class="s">"Certificate"</span>: {
+      <span class="s">"CertificatePath"</span>: <span class="s">"certs/empresa.p12"</span>,
+      <span class="s">"CertificatePassword"</span>: <span class="s">"&lt;desde un secret store&gt;"</span>
+    }
+  }
+}</pre></div>
+            <table class="doc-table">
+              <thead><tr><th>Environment</th><th>Ambiente DGII</th></tr></thead>
+              <tbody>
+                <tr><td><code>Test</code></td><td>TesteCF</td></tr>
+                <tr><td><code>Certification</code></td><td>CerteCF</td></tr>
+                <tr><td><code>Production</code></td><td>eCF</td></tr>
+              </tbody>
+            </table>
+            <p class="note">El certificado también se puede entregar en base64 con <code>CertificateBase64</code>, algo útil en contenedores y secret managers. Nunca guardes la contraseña en el repositorio.</p>
+          </article>
+
+          <article class="doc" id="d-registro">
+            <span class="doc-num">03</span>
+            <h3>Registro</h3>
+            <p>Con el contenedor de dependencias de ASP.NET Core o de un Worker:</p>
+            <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>Program.cs</b></div>
+<pre>builder.Services.<span class="m">AddDgiiEcf</span>(builder.Configuration);
+
+<span class="c">// o por código</span>
+services.<span class="m">AddDgiiEcf</span>(options =&gt;
+{
+    options.Environment = <span class="t">DgiiEnvironment</span>.Certification;
+    options.CertificateBase64 = secrets[<span class="s">"dgii-p12"</span>];
+    options.CertificatePassword = secrets[<span class="s">"dgii-p12-password"</span>];
+});
+
+<span class="c">// o partiendo de un X509Certificate2 que ya tengas abierto</span>
+services.<span class="m">AddDgiiEcf</span>(certificate, options =&gt; options.Environment = <span class="t">DgiiEnvironment</span>.Production);</pre></div>
+            <p>Si no usas un contenedor de DI:</p>
+            <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>Program.cs</b></div>
+<pre><span class="k">using var</span> dgii = <span class="t">DgiiEcfClient</span>.<span class="m">Create</span>(options =&gt; { <span class="c">/* ... */</span> });
+<span class="k">var</span> client   = dgii.Client;   <span class="c">// IDgiiEcfClient</span>
+<span class="k">var</span> receiver = dgii.Receiver; <span class="c">// IEcfReceiver</span></pre></div>
+          </article>
+
+          <article class="doc" id="d-resultados">
+            <span class="doc-num">04</span>
+            <h3>Resultados y errores</h3>
+            <p>Todas las operaciones devuelven <code>Result&lt;T&gt;</code>. Un error esperado nunca lanza excepción: revisa <code>IsSuccess</code> o <code>Error</code>.</p>
+            <ul class="doc-list">
+              <li>Cuando falla la DGII, <code>Error</code> es un <code>DgiiApiError</code> con <code>Status</code>, <code>Messages</code> (los <code>mensajes</code> de la DGII) y <code>RawBody</code>.</li>
+              <li><code>Error.Message</code> trae el texto de la DGII, por ejemplo <i>"e-NCF duplicado"</i>.</li>
+            </ul>
+          </article>
+
+          <article class="doc" id="d-emisor">
+            <span class="doc-num">05</span>
+            <h3>Emisor</h3>
+            <p>Inyecta <code>IDgiiEcfClient</code>, firma y envía. El token se obtiene y se renueva solo, y si la DGII responde 401 se reintenta una vez con un token nuevo. Por defecto el archivo se nombra <code>{RNCEmisor}{eNCF}.xml</code>.</p>
+            <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>FacturacionService.cs</b></div>
+<pre><span class="k">public sealed class</span> <span class="t">FacturacionService</span>(<span class="t">IDgiiEcfClient</span> dgii)
+{
+    <span class="k">public async</span> <span class="t">Task</span>&lt;<span class="k">string</span>?&gt; <span class="m">EnviarAsync</span>(<span class="t">Ecf</span> factura, <span class="t">CancellationToken</span> ct)
+    {
+        <span class="k">var</span> firmado = dgii.<span class="m">SignDocument</span>(factura);   <span class="c">// o dgii.Sign(xml, "ECF")</span>
+        <span class="k">if</span> (firmado.IsFailure) <span class="k">return null</span>;
+
+        <span class="k">var</span> envio = <span class="k">await</span> dgii.<span class="m">SendElectronicDocumentAsync</span>(firmado.Value, cancellationToken: ct);
+        <span class="k">if</span> (envio.IsFailure) <span class="k">return null</span>;
+
+        <span class="k">var</span> estado = <span class="k">await</span> dgii.<span class="m">GetTrackStatusAsync</span>(envio.Value.TrackId!, ct);
+        <span class="k">return</span> estado.IsSuccess ? estado.Value.Estado : <span class="k">null</span>;
+    }
+}</pre></div>
+            <p>Otras operaciones del emisor: <code>SendCommercialApprovalAsync</code>, <code>VoidEncfAsync</code>, <code>InquiryStatusAsync</code>, <code>GetTrackIdsAsync</code>, <code>GetCustomerDirectoryAsync</code> y <code>GetSummaryInvoiceInquiryAsync</code> (solo producción). Las de estatus de servicios (<code>GetServicesStatusAsync</code>, <code>GetMaintenanceWindowsAsync</code>, <code>VerifyServiceStatusAsync</code>) requieren <code>StatusApiKey</code>.</p>
+          </article>
+
+          <article class="doc" id="d-consumo">
+            <span class="doc-num">06</span>
+            <h3>Factura de consumo</h3>
+            <p>Para un e-CF 32 menor de RD$250,000 se envía el resumen (RFCE). Guarda el e-CF 32 firmado: es el documento completo.</p>
+            <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>Consumo.cs</b></div>
+<pre><span class="k">var</span> ecf32 = dgii.<span class="m">SignDocument</span>(facturaConsumo).Value;
+<span class="k">var</span> rfce  = dgii.<span class="m">CreateSignedRfce</span>(ecf32).Value;       <span class="c">// resumen firmado + código de seguridad</span>
+<span class="k">var</span> respuesta = <span class="k">await</span> dgii.<span class="m">SendSummaryAsync</span>(rfce.SignedXml);
+<span class="k">var</span> qr = <span class="t">EcfTools</span>.<span class="m">FcQrCodeUrl</span>(rnc, encf, montoTotal, rfce.SecurityCode, <span class="t">DgiiEnvironment</span>.Test);</pre></div>
+          </article>
+
+          <article class="doc" id="d-receptor">
+            <span class="doc-num">07</span>
+            <h3>Receptor</h3>
+            <p>Para el estándar emisor-receptor expones tres endpoints y <code>IEcfReceiver</code> hace el trabajo pesado:</p>
+            <table class="doc-table">
+              <thead><tr><th>Endpoint</th><th>Método</th></tr></thead>
+              <tbody>
+                <tr><td><code>GET /fe/autenticacion/api/semilla</code></td><td><code>GenerateSeed()</code></td></tr>
+                <tr><td><code>POST /fe/autenticacion/api/validacioncertificado</code></td><td><code>ValidateSignedSeed()</code> → JWT</td></tr>
+                <tr><td><code>POST /fe/recepcion/api/ecf</code></td><td><code>ValidateToken()</code> + <code>BuildSignedReceiptAcknowledgement()</code></td></tr>
+              </tbody>
+            </table>
+            <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>Program.cs</b></div>
+<pre>app.<span class="m">MapGet</span>(<span class="s">"/fe/autenticacion/api/semilla"</span>, (<span class="t">IEcfReceiver</span> r) =&gt;
+    <span class="t">Results</span>.<span class="m">Content</span>(r.<span class="m">GenerateSeed</span>(), <span class="s">"application/xml"</span>));
+
+app.<span class="m">MapPost</span>(<span class="s">"/fe/autenticacion/api/validacioncertificado"</span>, <span class="k">async</span> (<span class="t">HttpRequest</span> req, <span class="t">IEcfReceiver</span> r) =&gt;
+{
+    <span class="k">var</span> body = <span class="k">await new</span> <span class="t">StreamReader</span>(req.Body).<span class="m">ReadToEndAsync</span>();
+    <span class="k">var</span> archivo = r.<span class="m">ParseReceivedDocument</span>(body, req.ContentType!);
+    <span class="k">var</span> token = archivo.IsSuccess ? r.<span class="m">ValidateSignedSeed</span>(archivo.Value.XmlContent) : <span class="k">null</span>;
+    <span class="k">return</span> token <span class="k">is</span> { IsSuccess: <span class="k">true</span> } ? <span class="t">Results</span>.<span class="m">Ok</span>(token.Value) : <span class="t">Results</span>.<span class="m">Unauthorized</span>();
+});</pre></div>
+            <p class="note">El acuse de recibo rechaza por su cuenta los tipos 32, 41, 43, 45, 46 y 47 (código 1) y los documentos cuyo RNC comprador no es el tuyo (código 4).</p>
+          </article>
+
+          <article class="doc" id="d-herramientas">
+            <span class="doc-num">08</span>
+            <h3>Herramientas</h3>
+            <p><code>EcfTools</code> es una clase estática: no necesita certificado ni conexión HTTP.</p>
+            <table class="doc-table">
+              <thead><tr><th>Método</th><th>Qué hace</th></tr></thead>
+              <tbody>
+                <tr><td><code>GetSecurityCode(signedXml)</code></td><td>Primeros 6 caracteres del <code>SignatureValue</code></td></tr>
+                <tr><td><code>ConvertEcf32ToRfce(signedEcf32)</code></td><td>Genera el RFCE sin firmar</td></tr>
+                <tr><td><code>EcfQrCodeUrl(...)</code> / <code>FcQrCodeUrl(...)</code></td><td>URL del QR con el encoding de <code>encodeURIComponent</code></td></tr>
+                <tr><td><code>Serialize(doc)</code> / <code>Deserialize&lt;T&gt;(xml)</code></td><td>Documentos tipados ⇄ XML</td></tr>
+                <tr><td><code>JsonToXml</code> / <code>XmlToJson</code> / <code>NormalizeJsonCasing</code></td><td>Compatibilidad con los payloads JSON del paquete Node</td></tr>
+                <tr><td><code>SetXmlValue</code>, <code>ExtractXmlFromBody</code>, <code>CurrentFormattedDateTime</code></td><td>Utilidades de XML y fecha</td></tr>
+              </tbody>
+            </table>
+            <p class="note">Para verificar la firma de un documento recibido, usa <code>IValidateDocumentSignatureHandler</code> desde el contenedor de DI.</p>
+          </article>
+
+          <article class="doc" id="d-node">
+            <span class="doc-num">09</span>
+            <h3>Diferencias con Node</h3>
+            <p>Es un port de <a class="link" href="https://github.com/victors1681/dgii-ecf" target="_blank" rel="noopener">dgii-ecf</a> v1.8.5, con estas mejoras:</p>
+            <ul class="doc-list">
+              <li><b>Token por audiencia</b> (la DGII o cada receptor), renovado un minuto antes de expirar. Puedes reemplazar <code>IAccessTokenStore</code> por un store distribuido.</li>
+              <li><b>Semilla del receptor</b> verificada criptográficamente, no solo por digest.</li>
+              <li><b>Firmas</b> aceptadas aunque el documento se haya guardado indentado. No valida la vigencia ni la cadena del certificado.</li>
+              <li><b>RFCE</b> funciona con un solo <code>ImpuestoAdicional</code> y rechaza documentos que no son tipo 32 o que llegan a RD$250,000.</li>
+              <li><b>Certificado .p12</b>: se usa el que tiene la clave privada, no el primero de la bolsa.</li>
+              <li><b>JSON ⇄ XML</b> respeta los números tal como vienen (<code>637.20</code> sigue siendo <code>637.20</code>).</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </div>
+    <div class="h-rule"></div>
+  </section>
+
   <!-- CTA -->
   <section>
     <div class="frame">
       <div class="cta">
         <h2 class="reveal">Instálalo.<br>Úsalo.<br><span>Contribuye.</span></h2>
         <div class="cta-actions">
-          <p class="caps muted">DgiiEcf es de acceso público y sin costo. Descárgalo desde NuGet, revisa el código en GitHub y abre un issue o PR si encuentras algo que mejorar.</p>
+          <p class="caps muted">SellerNet es de acceso público y sin costo. Descárgalo desde NuGet, revisa el código en GitHub y abre un issue o PR si encuentras algo que mejorar.</p>
           <div>
             <a class="btn" href="https://www.nuget.org/packages/DgiiEcf" target="_blank" rel="noopener">Ver en NuGet <svg class="arrow"><use href="#arrow-ur"/></svg></a>
             <a class="btn-ghost" href="https://github.com/dev-fcastro/dgii-ecf" target="_blank" rel="noopener"><i></i><i></i><i></i><i></i>Código en GitHub</a>
@@ -504,7 +736,7 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
 
 <footer>
   <div class="frame">
-    <div class="foot-top"><span>© 2026 <a href="https://www.fcastro.site" target="_blank" rel="noopener">fcastro</a> · DgiiEcf · MIT</span><button type="button" id="totop">Volver arriba <svg class="arrow"><use href="#arrow-ur"/></svg></button></div>
+    <div class="foot-top"><span>© 2026 <a href="https://www.fcastro.site" target="_blank" rel="noopener">fcastro</a> · SellerNet · MIT</span><button type="button" id="totop">Volver arriba <svg class="arrow"><use href="#arrow-ur"/></svg></button></div>
   </div>
   <div class="h-rule"></div>
   <div class="frame">
@@ -537,7 +769,7 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
     </div>
   </div>
   <div class="h-rule"></div>
-  <div class="frame"><div class="foot-logo" aria-hidden="true"><span>Tributo</span></div></div>
+  <div class="frame"><div class="foot-logo" aria-hidden="true"><span>Seller<em>net</em></span></div></div>
 </footer>
 
 <script>
@@ -592,6 +824,19 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
   const burger = document.querySelector('.burger'), menu = document.getElementById('mmenu');
   burger.addEventListener('click', () => { const open = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', open); });
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
+  // docs scrollspy
+  const docLinks = [...document.querySelectorAll('.docs-nav a')];
+  const spy = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    docLinks.forEach(a => {
+      const on = a.getAttribute('href') === '#' + e.target.id;
+      a.classList.toggle('on', on);
+      if (on && a.parentElement.scrollWidth > a.parentElement.clientWidth)
+        a.parentElement.scrollTo({ left: a.offsetLeft - 24, behavior: 'smooth' });
+    });
+  }), { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('.doc').forEach(d => spy.observe(d));
 
   document.getElementById('totop').addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 })();
