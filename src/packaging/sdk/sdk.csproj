@@ -19,7 +19,7 @@
     <MinVerMinimumMajorMinor>1.0</MinVerMinimumMajorMinor>
     <RepositoryUrl>https://github.com/dev-fcastro/dgii-ecf</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/dev-fcastro/dgii-ecf</PackageProjectUrl>
+    <PackageProjectUrl>https://sellernet.vercel.app/</PackageProjectUrl>
     <Authors>DgiiEcf contributors</Authors>
     <Description>Facturación electrónica (e-CF) de la DGII de República Dominicana para .NET: firma XML-DSig, autenticación, envío y consulta de e-CF, RFCE, aprobación comercial, anulación de secuencias, receptor (semilla, token y acuse de recibo), códigos QR y validación de firmas. Port del paquete Node dgii-ecf.</Description>
     <PackageTags>dgii;ecf;e-cf;facturacion-electronica;republica-dominicana;xmldsig;rfce</PackageTags>
