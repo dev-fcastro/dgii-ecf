@@ -208,13 +208,13 @@ La versión del paquete sale de los tags de git mediante [MinVer](https://github
 Hay dos workflows:
 
 - **CI** (`.github/workflows/ci.yml`): en cada push y PR a `master` compila, ejecuta las pruebas en net8.0 y net10.0, y deja el `.nupkg` como artefacto.
-- **Release** (`.github/workflows/release.yml`): se dispara de dos formas:
-  - desde *Actions → Release → Run workflow*, eligiendo `patch`, `minor` o `major`, con lo que crea el siguiente tag por su cuenta;
+- **Publish** (`.github/workflows/publish.yml`): se dispara de dos formas:
+  - desde *Actions → Publish → Run workflow*, eligiendo `patch`, `minor` o `major`, con lo que crea el siguiente tag por su cuenta;
   - empujando un tag a mano, por ejemplo `git tag v1.2.3 && git push origin v1.2.3`.
 
   En los dos casos compila, prueba, empaqueta, publica en NuGet.org y crea el GitHub Release.
 
-Para publicar en NuGet.org hay que configurar el secret `NUGET_API_KEY` en el repositorio (*Settings → Secrets and variables → Actions*). Si falta, el paso de publicación se omite.
+La publicación en NuGet.org usa *Trusted Publishing*, sin API keys guardadas en el repositorio. La política de nuget.org debe coincidir con estos valores: owner `dev-fcastro`, repositorio `dgii-ecf`, workflow `publish.yml`, patrón `DgiiEcf*` y usuario `fcastrodev`.
 
 ## Licencia
 

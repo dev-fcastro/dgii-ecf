@@ -1,7 +1,7 @@
-name: Release
+name: Publish
 
 # Two ways to release:
-#  - Actions > Release > Run workflow, choosing patch / minor / major: the next vX.Y.Z tag is computed and pushed.
+#  - Actions > Publish > Run workflow, choosing patch / minor / major: the next vX.Y.Z tag is computed and pushed.
 #  - Pushing a tag by hand: git tag v1.2.3 && git push origin v1.2.3
 # The package version always comes from the tag (MinVer).
 on:
@@ -16,7 +16,8 @@ on:
     tags: ['v*.*.*']
 
 permissions:
-  contents: write
+  contents: write # push the tag and create the GitHub Release
+  id-token: write # NuGet.org Trusted Publishing (OIDC)
 
 concurrency:
   group: release
@@ -77,15 +78,16 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "Package version: $version"
 
+      # Trusted Publishing: exchanges the GitHub OIDC token for a short-lived NuGet API key.
+      # Policy on nuget.org: owner dev-fcastro, repo dgii-ecf, workflow publish.yml, package DgiiEcf*.
+      - name: NuGet login
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: fcastrodev
+
       - name: Publish to NuGet.org
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: |
-          if [ -z "$NUGET_API_KEY" ]; then
-            echo "::warning::NUGET_API_KEY no está configurado; se omite la publicación en NuGet.org."
-            exit 0
-          fi
-          dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: GitHub Release
         env:
