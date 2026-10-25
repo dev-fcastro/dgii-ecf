@@ -147,12 +147,14 @@ pre .k{color:#7cc7f5}pre .t{color:#8ee6c9}pre .s{color:#f5c98a}pre .c{color:#6f8
 /* ---------- effect / numbers ---------- */
 .effect{display:grid;grid-template-columns:1fr 1.4fr}
 .effect-intro{padding:clamp(2rem,5vw,4rem) 1.5rem;border-right:1px dashed var(--line);display:flex;flex-direction:column;gap:2rem;justify-content:space-between}
-.effect-grid{display:grid;grid-template-columns:1fr 1fr}
+.effect-grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .stat{padding:2rem 1.5rem;display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem;min-height:13rem}
 .stat.big{grid-column:1/-1;border-bottom:1px dashed var(--line)}
-.stat + .stat:not(.big){border-left:1px dashed var(--line)}
+.stat:not(.big):not(:nth-child(2)){border-left:1px dashed var(--line)}
 .stat b{font-size:clamp(3rem,7vw,6.4rem);line-height:.85;letter-spacing:-.05em;color:var(--navy)}
 .stat b sup{font-size:.35em;letter-spacing:0;vertical-align:top;margin-left:.3rem;color:var(--ink)}
+.stat.downloads{color:inherit;transition:background .2s}
+.stat.downloads:hover{background:rgba(0,72,128,.06)}
 
 /* ---------- API table ---------- */
 .dark{background:var(--navy);color:#fff}
@@ -164,7 +166,7 @@ pre .k{color:#7cc7f5}pre .t{color:#8ee6c9}pre .s{color:#f5c98a}pre .c{color:#6f8
 .op:not(:nth-child(3n)){border-right:1px dashed var(--line-w)}
 .op:hover{background:rgba(255,255,255,.06)}
 .op small{font-family:var(--mono);font-size:.7rem;color:var(--ice);text-transform:uppercase;letter-spacing:.06em}
-.op h4{font-size:1.15rem;font-weight:700;line-height:1.15}
+.op h3{font-size:1.15rem;font-weight:700;line-height:1.15}
 .op code{font-family:var(--mono);font-size:.76rem;color:#cfe6f7;word-break:break-word}
 
 /* ---------- cta ---------- */
@@ -180,7 +182,7 @@ footer{background:var(--ink);color:#fff}
 .foot-top{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.5rem;font-family:var(--mono);font-size:.8rem}
 .foot-top button{background:none;border:0;color:inherit;font:inherit;cursor:pointer;display:flex;gap:.5rem;align-items:center;text-transform:uppercase}
 .foot-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:2rem;padding:2.5rem 1.5rem}
-.foot-nav h5{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--sky);margin-bottom:1rem;font-weight:500}
+.foot-heading{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--sky);margin-bottom:1rem;font-weight:500}
 .foot-nav ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
 .foot-nav a{opacity:.8;font-size:.92rem}
 .foot-nav a:hover{opacity:1;text-decoration:underline}
@@ -211,7 +213,7 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
 .doc{position:relative;padding:clamp(2rem,4vw,3rem) clamp(1.2rem,3vw,2.5rem);display:flex;flex-direction:column;gap:1.1rem;max-width:52rem}
 .doc + .doc{border-top:1px dashed var(--line)}
 .doc-num{font-family:var(--mono);font-size:.75rem;color:var(--navy)}
-.doc h3{font-size:clamp(1.6rem,2.6vw,2.3rem);line-height:1;text-transform:uppercase;letter-spacing:-.03em;margin-top:-.4rem}
+.doc h2{font-size:clamp(1.6rem,2.6vw,2.3rem);line-height:1;text-transform:uppercase;letter-spacing:-.03em;margin-top:-.4rem}
 .doc p code,.doc li code,.doc td code{background:rgba(0,72,128,.08);padding:.08rem .35rem;color:var(--navy)}
 .doc .window{background:var(--ink)}
 .doc .window pre{font-size:.78rem}
@@ -264,7 +266,9 @@ footer .h-rule{background:repeating-linear-gradient(to right,rgba(255,255,255,.3
   .marquee{padding:1rem 0}
   .hero-title,.hero-free,.help-left,.stack-title,.cards,.effect-intro,.stat,.api,.cta,.foot-nav,.foot-top,.foot-logo,.nav,.disclaimer{padding-left:1rem;padding-right:1rem}
   .effect-grid{grid-template-columns:1fr}
-  .stat + .stat:not(.big){border-left:0;border-top:1px dashed var(--line)}
+  .stat:not(.big):not(:nth-child(2)){border-left:0}
+  .stat + .stat:not(.big){border-top:1px dashed var(--line)}
+  .stat.downloads{border-left:0}
   .ops{grid-template-columns:1fr}
   .op:nth-child(odd){border-right:0}
   .card{min-height:16rem;position:relative;top:auto!important}

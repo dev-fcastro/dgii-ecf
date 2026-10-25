@@ -50,6 +50,24 @@
   }), { threshold: .3 });
   document.querySelectorAll('.reveal,[data-count]').forEach(el => io.observe(el));
 
+  // NuGet's search API reports cumulative downloads across package versions.
+  const downloadCount = document.getElementById('nuget-downloads');
+  if (downloadCount) {
+    fetch('https://azuresearch-usnc.nuget.org/query?q=packageid%3ADgiiEcf&prerelease=false', { signal: AbortSignal.timeout(8000) })
+      .then(response => {
+        if (!response.ok) throw new Error('NuGet unavailable');
+        return response.json();
+      })
+      .then(({ data }) => {
+        const pkg = data.find(item => item.id.toLowerCase() === 'dgiiecf');
+        if (!pkg || !Number.isFinite(pkg.totalDownloads)) throw new Error('Missing download count');
+        downloadCount.textContent = new Intl.NumberFormat('es-DO').format(pkg.totalDownloads);
+      })
+      .catch(() => {
+        downloadCount.textContent = '—';
+      });
+  }
+
   // mobile menu
   const burger = document.querySelector('.burger'), menu = document.getElementById('mmenu');
   burger.addEventListener('click', () => { const open = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', open); });

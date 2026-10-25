@@ -4,17 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SellerNet · Facturación electrónica DGII para .NET</title>
-<meta name="description" content="SellerNet: paquete NuGet gratuito y open source para la facturación electrónica (e-CF) de la DGII de República Dominicana en .NET 8 y .NET 10. Firma XML-DSig, envío, consultas, RFCE y receptor.">
+<meta name="description" content="SellerNet: paquete NuGet gratuito para facturación electrónica e-CF de la DGII en .NET 8 y 10. Firma XML, envía y consulta comprobantes.">
 <meta name="keywords" content="paquete nuget dgii, paquete nuget dgi, dgii nuget, facturación electrónica dgii .net, e-cf dgii c#, nuget dominican republic, dgii electronic invoicing dotnet, xml-dsig dgii, republica dominicana facturacion electronica nuget">
 <meta name="author" content="Francisco Castro">
-<link rel="canonical" href="https://sellernet.vercel.app/">
+<link rel="canonical" href="https://sellernet.fcastro.site/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta property="og:title" content="SellerNet · e-CF DGII para .NET">
 <meta property="og:description" content="Firma, envía y recibe comprobantes fiscales electrónicos de la DGII desde .NET con un solo paquete NuGet.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sellernet.vercel.app/">
+<meta property="og:url" content="https://sellernet.fcastro.site/">
 <meta property="og:site_name" content="SellerNet">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://sellernet.fcastro.site/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SellerNet: facturación electrónica DGII para .NET">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sellernet.fcastro.site/og-image.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +31,7 @@
   "@graph": [
     {
       "@type": "SoftwareSourceCode",
-      "@id": "https://sellernet.vercel.app/#dgiiecf",
+      "@id": "https://sellernet.fcastro.site/#dgiiecf",
       "name": "DgiiEcf",
       "alternateName": "SellerNet",
       "description": "Paquete NuGet gratuito y open source para la facturación electrónica (e-CF) de la DGII de República Dominicana en .NET 8 y .NET 10.",
@@ -35,17 +40,17 @@
       "license": "https://github.com/dev-fcastro/dgii-ecf/blob/master/LICENSE",
       "codeRepository": "https://github.com/dev-fcastro/dgii-ecf",
       "downloadUrl": "https://www.nuget.org/packages/DgiiEcf",
-      "url": "https://sellernet.vercel.app/",
+      "url": "https://sellernet.fcastro.site/",
       "author": { "@type": "Person", "name": "Francisco Daniel Castro Borrome", "url": "https://www.fcastro.site/", "sameAs": "https://www.fcastro.site/#francisco-castro" },
       "keywords": "DGII, e-CF, facturación electrónica, NuGet, .NET, República Dominicana"
     },
     {
       "@type": "WebSite",
-      "@id": "https://sellernet.vercel.app/#website",
-      "url": "https://sellernet.vercel.app/",
+      "@id": "https://sellernet.fcastro.site/#website",
+      "url": "https://sellernet.fcastro.site/",
       "name": "SellerNet",
       "description": "Sitio de SellerNet (paquete NuGet DgiiEcf) para la facturación electrónica de la DGII en .NET.",
-      "about": { "@id": "https://sellernet.vercel.app/#dgiiecf" },
+      "about": { "@id": "https://sellernet.fcastro.site/#dgiiecf" },
       "publisher": { "@type": "Person", "name": "Francisco Daniel Castro Borrome", "url": "https://www.fcastro.site/" }
     }
   ]
@@ -116,7 +121,7 @@
         <div class="install" id="install">
           <div class="install-tabs" role="tablist">
             <button role="tab" aria-selected="true" data-cmd="dotnet add package DgiiEcf" data-prefix="&gt;">.NET CLI</button>
-            <button role="tab" aria-selected="false" data-cmd='&lt;PackageReference Include="DgiiEcf" Version="1.0.0" /&gt;' data-prefix="">PackageReference</button>
+            <button role="tab" aria-selected="false" data-cmd='&lt;PackageReference Include="DgiiEcf" Version="1.0.1" /&gt;' data-prefix="">PackageReference</button>
             <button role="tab" aria-selected="false" data-cmd="Install-Package DgiiEcf" data-prefix="PM&gt;">Package Manager</button>
           </div>
           <div class="install-body">
@@ -250,12 +255,13 @@
       <div class="effect">
         <div class="effect-intro">
           <h2 class="h2 reveal">El efecto SellerNet</h2>
-          <p class="caps muted">Menos código de integración, cero dependencias de terceros para firmar y un solo lugar donde vive todo lo que la DGII te exige. Port fiel del paquete Node <b>dgii-ecf</b>, con Clean Architecture.</p>
+          <p class="caps muted">Menos código de integración y un solo lugar para trabajar con la DGII. Incluye las mejoras de <b>dgii-ecf 1.8.5</b>: errores con el mensaje real del servicio, directorio uniforme, hora dominicana de 24 horas y firma XML con raíz automática.</p>
         </div>
         <div class="effect-grid">
           <div class="stat big"><b><span data-count="1">0</span><sup>paquete</sup></b><span class="caps">emisor, receptor, firma, consultas y herramientas</span></div>
           <div class="stat"><b><span data-count="5">0</span></b><span class="caps">documentos tipados con el orden del XSD</span></div>
           <div class="stat"><b><span data-count="3">0</span></b><span class="caps">ambientes DGII: TesteCF, CerteCF y eCF</span></div>
+          <a class="stat downloads" href="https://www.nuget.org/packages/DgiiEcf" target="_blank" rel="noopener" aria-label="Ver las descargas de DgiiEcf en NuGet"><b id="nuget-downloads">—</b><span class="caps">descargas totales en NuGet ↗</span></a>
         </div>
       </div>
     </div>
@@ -272,15 +278,15 @@
           <a class="btn light" href="/docs">Ver documentación <svg class="arrow"><use href="#arrow-ur"/></svg></a>
         </div>
         <div class="ops">
-          <div class="op"><small>Emisor</small><h4>Enviar e-CF</h4><code>SendElectronicDocumentAsync()</code></div>
-          <div class="op"><small>Emisor</small><h4>Factura de consumo (RFCE)</h4><code>CreateSignedRfce() + SendSummaryAsync()</code></div>
-          <div class="op"><small>Emisor</small><h4>Aprobación comercial</h4><code>SendCommercialApprovalAsync()</code></div>
-          <div class="op"><small>Emisor</small><h4>Anulación de secuencias</h4><code>VoidEncfAsync()</code></div>
-          <div class="op"><small>Consulta</small><h4>Estado por trackId</h4><code>GetTrackStatusAsync()</code></div>
-          <div class="op"><small>Consulta</small><h4>Estado de un e-CF</h4><code>InquiryStatusAsync()</code></div>
-          <div class="op"><small>Consulta</small><h4>Directorio de facturadores</h4><code>GetCustomerDirectoryAsync()</code></div>
-          <div class="op"><small>Receptor</small><h4>Semilla y token JWT</h4><code>GenerateSeed() · ValidateSignedSeed()</code></div>
-          <div class="op"><small>Receptor</small><h4>Acuse de recibo</h4><code>BuildSignedReceiptAcknowledgement()</code></div>
+          <div class="op"><small>Emisor</small><h3>Enviar e-CF</h3><code>SendElectronicDocumentAsync()</code></div>
+          <div class="op"><small>Emisor</small><h3>Factura de consumo (RFCE)</h3><code>CreateSignedRfce() + SendSummaryAsync()</code></div>
+          <div class="op"><small>Emisor</small><h3>Aprobación comercial</h3><code>SendCommercialApprovalAsync()</code></div>
+          <div class="op"><small>Emisor</small><h3>Anulación de secuencias</h3><code>VoidEncfAsync()</code></div>
+          <div class="op"><small>Consulta</small><h3>Estado por trackId</h3><code>GetTrackStatusAsync()</code></div>
+          <div class="op"><small>Consulta</small><h3>Estado de un e-CF</h3><code>InquiryStatusAsync()</code></div>
+          <div class="op"><small>Consulta</small><h3>Directorio de facturadores</h3><code>GetCustomerDirectoryAsync()</code></div>
+          <div class="op"><small>Receptor</small><h3>Semilla y token JWT</h3><code>GenerateSeed() · ValidateSignedSeed()</code></div>
+          <div class="op"><small>Receptor</small><h3>Acuse de recibo</h3><code>BuildSignedReceiptAcknowledgement()</code></div>
         </div>
       </div>
     </div>
@@ -314,26 +320,26 @@
   <div class="h-rule"></div>
   <div class="frame">
     <div class="foot-nav">
-      <div><h5>Paquete</h5><ul>
+      <div><p class="foot-heading">Paquete</p><ul>
         <li><a href="https://www.nuget.org/packages/DgiiEcf" target="_blank" rel="noopener">NuGet · DgiiEcf</a></li>
         <li><a href="https://www.nuget.org/packages/DgiiEcf#versions-body-tab" target="_blank" rel="noopener">Versiones</a></li>
         <li><a href="https://github.com/dev-fcastro/dgii-ecf/blob/master/LICENSE" target="_blank" rel="noopener">Licencia MIT</a></li>
       </ul></div>
-      <div><h5>Código</h5><ul>
+      <div><p class="foot-heading">Código</p><ul>
         <li><a href="https://github.com/dev-fcastro/dgii-ecf" target="_blank" rel="noopener">Repositorio</a></li>
         <li><a href="https://github.com/dev-fcastro/dgii-ecf#readme" target="_blank" rel="noopener">README</a></li>
         <li><a href="https://github.com/dev-fcastro/dgii-ecf/issues" target="_blank" rel="noopener">Reportar un problema</a></li>
       </ul></div>
-      <div><h5>Autor</h5><ul>
+      <div><p class="foot-heading">Autor</p><ul>
         <li><a href="https://www.fcastro.site" target="_blank" rel="noopener">fcastro.site</a></li>
         <li><a href="https://github.com/dev-fcastro" target="_blank" rel="noopener">GitHub · dev-fcastro</a></li>
       </ul></div>
-      <div><h5>Referencias</h5><ul>
+      <div><p class="foot-heading">Referencias</p><ul>
         <li><a href="https://github.com/victors1681/dgii-ecf" target="_blank" rel="noopener">dgii-ecf (Node, original)</a></li>
         <li><a href="https://dgii.gov.do" target="_blank" rel="noopener">DGII</a></li>
         <li><a href="https://learn.microsoft.com/dotnet/" target="_blank" rel="noopener">Documentación .NET</a></li>
       </ul></div>
-      <div><h5>Sitio</h5><ul>
+      <div><p class="foot-heading">Sitio</p><ul>
         <li><a href="/">Inicio</a></li>
         <li><a href="/#capacidades">Capacidades</a></li>
         <li><a href="/#como">Cómo funciona</a></li>

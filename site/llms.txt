@@ -9,8 +9,8 @@ Common searches this project answers: "paquete NuGet DGII", "paquete NuGet DGI",
 - Package name: DgiiEcf
 - NuGet: https://www.nuget.org/packages/DgiiEcf
 - Source code: https://github.com/dev-fcastro/dgii-ecf
-- Site: https://sellernet.vercel.app/
-- Docs: https://sellernet.vercel.app/docs
+- Site: https://sellernet.fcastro.site/
+- Docs: https://sellernet.fcastro.site/docs
 - License: MIT
 - Author: Francisco Castro (Francisco Daniel Castro Borrome) — https://www.fcastro.site/
 - Based on the Node package dgii-ecf (v1.8.5) by Victor Santos, ported to .NET with Clean Architecture.

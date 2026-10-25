@@ -4,15 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Documentación · SellerNet</title>
-<meta name="description" content="Documentación de SellerNet (paquete NuGet DgiiEcf): instalación, configuración, emisor, receptor, factura de consumo y herramientas para el e-CF de la DGII en .NET.">
+<meta name="description" content="Documentación de SellerNet para e-CF de la DGII en .NET: instalación, configuración, firma XML, emisión, recepción y factura de consumo.">
 <meta name="keywords" content="paquete nuget dgii, paquete nuget dgi, documentación dgii .net, e-cf dgii c#, dgii nuget docs">
-<link rel="canonical" href="https://sellernet.vercel.app/docs">
+<link rel="canonical" href="https://sellernet.fcastro.site/docs">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Documentación · SellerNet">
 <meta property="og:description" content="Firma, envía y recibe comprobantes fiscales electrónicos de la DGII desde .NET con un solo paquete NuGet.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sellernet.vercel.app/docs">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://sellernet.fcastro.site/docs">
+<meta property="og:image" content="https://sellernet.fcastro.site/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SellerNet: facturación electrónica DGII para .NET">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sellernet.fcastro.site/og-image.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,7 +86,7 @@
 
           <article class="doc" id="d-instalacion">
             <span class="doc-num">01</span>
-            <h3>Instalación</h3>
+            <h2>Instalación</h2>
             <p>Requiere <b>.NET 8</b> o <b>.NET 10</b>. Es un solo paquete: emisor, receptor, firma y herramientas vienen juntos.</p>
             <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>terminal</b></div>
 <pre>dotnet add package DgiiEcf</pre></div>
@@ -89,7 +94,7 @@
 
           <article class="doc" id="d-configuracion">
             <span class="doc-num">02</span>
-            <h3>Configuración</h3>
+            <h2>Configuración</h2>
             <p>Agrega la sección <code>DgiiEcf</code> a tu <code>appsettings.json</code>:</p>
             <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>appsettings.json</b></div>
 <pre>{
@@ -115,7 +120,7 @@
 
           <article class="doc" id="d-registro">
             <span class="doc-num">03</span>
-            <h3>Registro</h3>
+            <h2>Registro</h2>
             <p>Con el contenedor de dependencias de ASP.NET Core o de un Worker:</p>
             <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>Program.cs</b></div>
 <pre>builder.Services.<span class="m">AddDgiiEcf</span>(builder.Configuration);
@@ -139,7 +144,7 @@ services.<span class="m">AddDgiiEcf</span>(certificate, options =&gt; options.En
 
           <article class="doc" id="d-resultados">
             <span class="doc-num">04</span>
-            <h3>Resultados y errores</h3>
+            <h2>Resultados y errores</h2>
             <p>Todas las operaciones devuelven <code>Result&lt;T&gt;</code>. Un error esperado nunca lanza excepción: revisa <code>IsSuccess</code> o <code>Error</code>.</p>
             <ul class="doc-list">
               <li>Cuando falla la DGII, <code>Error</code> es un <code>DgiiApiError</code> con <code>Status</code>, <code>Messages</code> (los <code>mensajes</code> de la DGII) y <code>RawBody</code>.</li>
@@ -149,7 +154,7 @@ services.<span class="m">AddDgiiEcf</span>(certificate, options =&gt; options.En
 
           <article class="doc" id="d-emisor">
             <span class="doc-num">05</span>
-            <h3>Emisor</h3>
+            <h2>Emisor</h2>
             <p>Inyecta <code>IDgiiEcfClient</code>, firma y envía. El token se obtiene y se renueva solo, y si la DGII responde 401 se reintenta una vez con un token nuevo. Por defecto el archivo se nombra <code>{RNCEmisor}{eNCF}.xml</code>.</p>
             <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>FacturacionService.cs</b></div>
 <pre><span class="k">public sealed class</span> <span class="t">FacturacionService</span>(<span class="t">IDgiiEcfClient</span> dgii)
@@ -171,7 +176,7 @@ services.<span class="m">AddDgiiEcf</span>(certificate, options =&gt; options.En
 
           <article class="doc" id="d-consumo">
             <span class="doc-num">06</span>
-            <h3>Factura de consumo</h3>
+            <h2>Factura de consumo</h2>
             <p>Para un e-CF 32 menor de RD$250,000 se envía el resumen (RFCE). Guarda el e-CF 32 firmado: es el documento completo.</p>
             <div class="window"><div class="window-bar"><i></i><i></i><i></i><b>Consumo.cs</b></div>
 <pre><span class="k">var</span> ecf32 = dgii.<span class="m">SignDocument</span>(facturaConsumo).Value;
@@ -182,7 +187,7 @@ services.<span class="m">AddDgiiEcf</span>(certificate, options =&gt; options.En
 
           <article class="doc" id="d-receptor">
             <span class="doc-num">07</span>
-            <h3>Receptor</h3>
+            <h2>Receptor</h2>
             <p>Para el estándar emisor-receptor expones tres endpoints y <code>IEcfReceiver</code> hace el trabajo pesado:</p>
             <table class="doc-table">
               <thead><tr><th>Endpoint</th><th>Método</th></tr></thead>
@@ -208,7 +213,7 @@ app.<span class="m">MapPost</span>(<span class="s">"/fe/autenticacion/api/valida
 
           <article class="doc" id="d-herramientas">
             <span class="doc-num">08</span>
-            <h3>Herramientas</h3>
+            <h2>Herramientas</h2>
             <p><code>EcfTools</code> es una clase estática: no necesita certificado ni conexión HTTP.</p>
             <table class="doc-table">
               <thead><tr><th>Método</th><th>Qué hace</th></tr></thead>
@@ -226,8 +231,15 @@ app.<span class="m">MapPost</span>(<span class="s">"/fe/autenticacion/api/valida
 
           <article class="doc" id="d-node">
             <span class="doc-num">09</span>
-            <h3>Diferencias con Node</h3>
-            <p>Es un port de <a class="link" href="https://github.com/victors1681/dgii-ecf" target="_blank" rel="noopener">dgii-ecf</a> v1.8.5, con estas mejoras:</p>
+            <h2>Diferencias con Node</h2>
+            <p>Es un port de <a class="link" href="https://github.com/victors1681/dgii-ecf" target="_blank" rel="noopener">dgii-ecf</a> v1.8.5. Incluye sus mejoras recientes:</p>
+            <ul class="doc-list">
+              <li><b>Errores de DGII:</b> <code>DgiiApiError</code> conserva el mensaje real, el estado HTTP, los mensajes y el cuerpo de la respuesta, incluso durante la autenticación.</li>
+              <li><b>Directorio:</b> <code>GetCustomerDirectoryAsync()</code> devuelve una lista tanto si la DGII responde con un objeto como si responde con un arreglo.</li>
+              <li><b>Fecha dominicana:</b> el acuse de recibo usa hora de 24 horas y <code>CurrentFormattedDateTime()</code> produce <code>dd-MM-yyyy HH:mm:ss</code>.</li>
+              <li><b>Firma XML:</b> detecta la raíz automáticamente, admite otros documentos XML y señala los XML inválidos.</li>
+            </ul>
+            <p>Además, SellerNet aporta estas capacidades propias de .NET:</p>
             <ul class="doc-list">
               <li><b>Token por audiencia</b> (la DGII o cada receptor), renovado un minuto antes de expirar. Puedes reemplazar <code>IAccessTokenStore</code> por un store distribuido.</li>
               <li><b>Semilla del receptor</b> verificada criptográficamente, no solo por digest.</li>
@@ -256,26 +268,26 @@ app.<span class="m">MapPost</span>(<span class="s">"/fe/autenticacion/api/valida
   <div class="h-rule"></div>
   <div class="frame">
     <div class="foot-nav">
-      <div><h5>Paquete</h5><ul>
+      <div><p class="foot-heading">Paquete</p><ul>
         <li><a href="https://www.nuget.org/packages/DgiiEcf" target="_blank" rel="noopener">NuGet · DgiiEcf</a></li>
         <li><a href="https://www.nuget.org/packages/DgiiEcf#versions-body-tab" target="_blank" rel="noopener">Versiones</a></li>
         <li><a href="https://github.com/dev-fcastro/dgii-ecf/blob/master/LICENSE" target="_blank" rel="noopener">Licencia MIT</a></li>
       </ul></div>
-      <div><h5>Código</h5><ul>
+      <div><p class="foot-heading">Código</p><ul>
         <li><a href="https://github.com/dev-fcastro/dgii-ecf" target="_blank" rel="noopener">Repositorio</a></li>
         <li><a href="https://github.com/dev-fcastro/dgii-ecf#readme" target="_blank" rel="noopener">README</a></li>
         <li><a href="https://github.com/dev-fcastro/dgii-ecf/issues" target="_blank" rel="noopener">Reportar un problema</a></li>
       </ul></div>
-      <div><h5>Autor</h5><ul>
+      <div><p class="foot-heading">Autor</p><ul>
         <li><a href="https://www.fcastro.site" target="_blank" rel="noopener">fcastro.site</a></li>
         <li><a href="https://github.com/dev-fcastro" target="_blank" rel="noopener">GitHub · dev-fcastro</a></li>
       </ul></div>
-      <div><h5>Referencias</h5><ul>
+      <div><p class="foot-heading">Referencias</p><ul>
         <li><a href="https://github.com/victors1681/dgii-ecf" target="_blank" rel="noopener">dgii-ecf (Node, original)</a></li>
         <li><a href="https://dgii.gov.do" target="_blank" rel="noopener">DGII</a></li>
         <li><a href="https://learn.microsoft.com/dotnet/" target="_blank" rel="noopener">Documentación .NET</a></li>
       </ul></div>
-      <div><h5>Sitio</h5><ul>
+      <div><p class="foot-heading">Sitio</p><ul>
         <li><a href="/">Inicio</a></li>
         <li><a href="/#capacidades">Capacidades</a></li>
         <li><a href="/#como">Cómo funciona</a></li>
