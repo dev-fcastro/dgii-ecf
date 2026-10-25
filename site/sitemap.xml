@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://sellernet.fcastro.site/</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url><url><loc>https://sellernet.fcastro.site/docs</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sellernet.fcastro.site/</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sellernet.fcastro.site/docs</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/que-es-facturacion-electronica</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/tipos-de-ecf</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/estructura-xml-ecf</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/firma-digital-xml-ecf</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/ambientes-y-autenticacion-dgii</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/envio-trackid-estados-ecf</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/factura-consumo-rfce</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/receptor-acuse-aprobacion-comercial</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/certificacion-emisor-electronico</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/contingencia-facturacion-electronica</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sellernet.fcastro.site/guias/anulacion-secuencias-encf</loc><lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

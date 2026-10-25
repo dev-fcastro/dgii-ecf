@@ -155,6 +155,10 @@ pre .k{color:#7cc7f5}pre .t{color:#8ee6c9}pre .s{color:#f5c98a}pre .c{color:#6f8
 .stat b sup{font-size:.35em;letter-spacing:0;vertical-align:top;margin-left:.3rem;color:var(--ink)}
 .stat.downloads{color:inherit;transition:background .2s}
 .stat.downloads:hover{background:rgba(0,72,128,.06)}
+.stat.big.downloads{min-height:18rem;background:var(--navy);color:#fff}
+.stat.big.downloads b{font-size:clamp(5rem,11vw,9rem);color:#fff}
+.stat.big.downloads .caps{color:var(--ice)}
+.stat.big.downloads:hover{background:#075b94}
 
 /* ---------- API table ---------- */
 .dark{background:var(--navy);color:#fff}
