@@ -51,8 +51,8 @@
   document.querySelectorAll('.reveal,[data-count]').forEach(el => io.observe(el));
 
   // NuGet's search API reports cumulative downloads across package versions.
-  const downloadCount = document.getElementById('nuget-downloads');
-  if (downloadCount) {
+  const downloadCounts = document.querySelectorAll('[data-nuget-downloads]');
+  if (downloadCounts.length) {
     fetch('https://azuresearch-usnc.nuget.org/query?q=packageid%3ADgiiEcf&prerelease=false', { signal: AbortSignal.timeout(8000) })
       .then(response => {
         if (!response.ok) throw new Error('NuGet unavailable');
@@ -61,10 +61,10 @@
       .then(({ data }) => {
         const pkg = data.find(item => item.id.toLowerCase() === 'dgiiecf');
         if (!pkg || !Number.isFinite(pkg.totalDownloads)) throw new Error('Missing download count');
-        downloadCount.textContent = new Intl.NumberFormat('es-DO').format(pkg.totalDownloads);
+        downloadCounts.forEach(el => { el.textContent = new Intl.NumberFormat('es-DO').format(pkg.totalDownloads); });
       })
       .catch(() => {
-        downloadCount.textContent = '—';
+        downloadCounts.forEach(el => { el.textContent = '—'; });
       });
   }
 

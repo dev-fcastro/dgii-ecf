@@ -1,0 +1,767 @@
+[
+  {
+    "slug": "que-es-facturacion-electronica",
+    "title": "¿Qué es la facturación electrónica en República Dominicana?",
+    "description": "Qué es un e-CF, quién lo emite y cómo circula entre el emisor, la DGII y el receptor electrónico.",
+    "category": "Fundamentos",
+    "lead": "La facturación electrónica de la DGII utiliza comprobantes fiscales electrónicos (e-CF): documentos XML firmados digitalmente que se emiten, transmiten, validan y conservan por medios electrónicos.",
+    "sections": [
+      {
+        "title": "El e-CF y sus actores",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "El informe técnico de la DGII indica que el e-CF tiene la misma validez y los mismos efectos legales que el comprobante fiscal no electrónico. Su diferencia operativa es el formato estándar XML y la firma electrónica. El emisor electrónico es un contribuyente autorizado por la DGII para emitirlo; el receptor electrónico también está autorizado como emisor."
+          },
+          {
+            "type": "p",
+            "text": "Un e-CF se identifica mediante un e-NCF, la secuencia alfanumérica otorgada por la DGII. El tipo de comprobante forma parte de esa identificación: una factura de crédito fiscal usa el tipo 31 y una factura de consumo el 32."
+          }
+        ]
+      },
+      {
+        "title": "Cómo fluye un comprobante",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "El emisor construye el XML con el formato que corresponde a su tipo de e-CF y lo firma con su certificado digital.",
+              "Se autentica ante la DGII, envía el XML firmado y recibe un `TrackId` para consultar el resultado del procesamiento.",
+              "Cuando la DGII valida el documento, el emisor puede enviarlo al receptor electrónico. Si el receptor no es electrónico, corresponde la representación impresa prevista por la DGII."
+            ]
+          },
+          {
+            "type": "note",
+            "text": "Recibir un TrackId confirma la recepción técnica del envío; consulta el estado para conocer el resultado de validación."
+          }
+        ]
+      },
+      {
+        "title": "Dónde entra SellerNet",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "SellerNet proporciona en .NET la firma, autenticación, envío y consulta. La autorización como emisor, la selección del tipo de e-CF y la calidad de los datos tributarios corresponden al contribuyente y a su proceso de certificación."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "informe",
+        "pages": "8–9, 13"
+      },
+      {
+        "id": "servicios",
+        "pages": "12"
+      }
+    ]
+  },
+  {
+    "slug": "tipos-de-ecf",
+    "title": "Tipos de e-CF y significado del e-NCF",
+    "description": "Conoce los diez tipos de comprobantes fiscales electrónicos de la DGII y cuándo elegir cada formato XML.",
+    "category": "Fundamentos",
+    "lead": "El tipo de comprobante define la operación tributaria y determina qué campos son obligatorios o condicionales en el XML. La DGII enumera diez tipos de e-CF en su formato oficial.",
+    "sections": [
+      {
+        "title": "Catálogo oficial",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Tipo",
+              "Comprobante electrónico"
+            ],
+            "rows": [
+              [
+                "31",
+                "Factura de Crédito Fiscal"
+              ],
+              [
+                "32",
+                "Factura de Consumo"
+              ],
+              [
+                "33",
+                "Nota de Débito"
+              ],
+              [
+                "34",
+                "Nota de Crédito"
+              ],
+              [
+                "41",
+                "Compras"
+              ],
+              [
+                "43",
+                "Gastos Menores"
+              ],
+              [
+                "44",
+                "Regímenes Especiales"
+              ],
+              [
+                "45",
+                "Gubernamental"
+              ],
+              [
+                "46",
+                "Exportaciones"
+              ],
+              [
+                "47",
+                "Pagos al Exterior"
+              ]
+            ]
+          },
+          {
+            "type": "p",
+            "text": "La factura de crédito fiscal registra transacciones para las que el receptor puede sustentar gastos, costos o crédito fiscal, según corresponda. La factura de consumo acredita operaciones con consumidores finales. Las notas de débito y crédito documentan modificaciones posteriores a una operación."
+          }
+        ]
+      },
+      {
+        "title": "El tipo afecta la estructura",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "La tabla de obligatoriedad del formato e-CF distingue los campos por tipo. Por ejemplo, la información de referencia es obligatoria para notas de débito y crédito, y condicional para otros tipos. No basta con cambiar `TipoeCF` en un XML de otra operación."
+          },
+          {
+            "type": "p",
+            "text": "El e-NCF es una secuencia autorizada por la DGII. El formato oficial muestra `TipoeCF` y `eNCF` dentro de `Encabezado/IdDoc`; también especifica cuándo corresponde la fecha de vencimiento de secuencia."
+          }
+        ]
+      },
+      {
+        "title": "Para una integración",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Elegir el tipo por la operación real, antes de construir el documento.",
+              "Consultar la columna de obligatoriedad específica para ese tipo en el formato DGII.",
+              "Validar contra el XSD del tipo correspondiente y comprobar que el e-NCF autorizado coincide con el documento."
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "informe",
+        "pages": "13–14"
+      },
+      {
+        "id": "formato",
+        "pages": "3–7"
+      },
+      {
+        "id": "xsd31"
+      },
+      {
+        "id": "xsd32"
+      }
+    ]
+  },
+  {
+    "slug": "estructura-xml-ecf",
+    "title": "Estructura XML de un e-CF: secciones, campos y XSD",
+    "description": "Guía técnica de las secciones del XML e-CF, sus reglas de obligatoriedad y validación con los esquemas XSD de la DGII.",
+    "category": "XML y firma",
+    "lead": "El XML e-CF no es una factura en texto libre. La DGII publica un formato de campos y un XSD por tipo de comprobante para describir su estructura.",
+    "sections": [
+      {
+        "title": "Las secciones del documento",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "`Encabezado`: identificación del documento, emisor, comprador y datos tributarios.",
+              "`DetallesItems`: detalle de bienes o servicios, con una línea por ítem.",
+              "Subtotales informativos y descuentos o recargos globales, cuando correspondan.",
+              "Paginación de la representación impresa e información de referencia, según la operación.",
+              "Fecha y hora de firma y firma digital sobre la información del e-CF."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "El formato distingue secciones obligatorias, condicionales y opcionales. Un dato marcado como condicional pasa a ser requerido cuando se cumple la condición indicada por la DGII; un campo opcional no reemplaza uno obligatorio."
+          }
+        ]
+      },
+      {
+        "title": "Qué valida el formato",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Para cada campo, la DGII documenta el tag XML, tipo de dato, longitud máxima, reglas de validación y presencia en la representación impresa. Los valores numéricos usan punto para separar decimales y no llevan separador de miles. Los tags sin valor deben omitirse cuando no se utilizan."
+          },
+          {
+            "type": "note",
+            "text": "El XSD comprueba estructura y tipos. El resultado de la DGII añade validaciones del proceso; un XML que pasa XSD no equivale por sí solo a un e-CF aceptado."
+          }
+        ]
+      },
+      {
+        "title": "Orden de trabajo recomendado",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Seleccionar el tipo 31, 32 u otro según la operación.",
+              "Llenar primero los datos obligatorios del formato oficial y luego los condicionales aplicables.",
+              "Serializar en el orden del XSD del tipo, validar el XML y firmar al final.",
+              "Conservar el XML firmado sin alterarlo antes de enviarlo."
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "formato",
+        "pages": "4–7"
+      },
+      {
+        "id": "emisores",
+        "pages": "4–6"
+      },
+      {
+        "id": "xsd31"
+      },
+      {
+        "id": "xsd32"
+      }
+    ]
+  },
+  {
+    "slug": "firma-digital-xml-ecf",
+    "title": "Firma digital del XML e-CF y certificado",
+    "description": "Qué exige la DGII para firmar XML e-CF: certificado, XML Signature, SHA-256, integridad y verificación.",
+    "category": "XML y firma",
+    "lead": "La firma digital permite verificar el origen del e-CF y detectar alteraciones del XML. La DGII publica tanto el formato de firma como ejemplos de implementación.",
+    "sections": [
+      {
+        "title": "Certificado y firma",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "El emisor utiliza un certificado digital asociado a su identidad. El instructivo de la DGII muestra una firma XML enveloped: la firma queda dentro del propio XML, la referencia cubre el documento y utiliza SHA-256 para el digest y RSA-SHA256 como método de firma."
+          },
+          {
+            "type": "p",
+            "text": "El estándar técnico para emisores indica que el número de serie o identificación del certificado debe corresponder al RNC, cédula o pasaporte del titular, según el caso. También indica que el XML no debe alterarse después de firmarlo."
+          }
+        ]
+      },
+      {
+        "title": "Secuencia técnica",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Construir un XML conforme al formato y XSD aplicables.",
+              "Cargar el certificado y su clave privada desde un almacén seguro.",
+              "Firmar el documento XML, incluyendo la información del certificado según el perfil indicado.",
+              "Verificar la firma y enviar el XML firmado sin reserializarlo ni cambiar sus espacios o contenido."
+            ]
+          },
+          {
+            "type": "note",
+            "text": "Un cambio posterior a la firma, incluso en la serialización del XML, puede invalidarla. Conserva el documento firmado como artefacto inmutable."
+          }
+        ]
+      },
+      {
+        "title": "En .NET",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "SellerNet expone `SignDocument` y validación de firma. La firma del paquete usa RSA-SHA256, digest SHA-256 y la transformación enveloped. Revisa la documentación del paquete para configurar el certificado `.p12` sin incluir su contraseña en el código."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "firma",
+        "pages": "3–5"
+      },
+      {
+        "id": "emisores",
+        "pages": "6"
+      },
+      {
+        "id": "formato",
+        "pages": "4–5"
+      }
+    ]
+  },
+  {
+    "slug": "ambientes-y-autenticacion-dgii",
+    "title": "Ambientes DGII y autenticación con semilla y token",
+    "description": "Diferencias entre TesteCF, CerteCF y producción, y el flujo técnico de semilla firmada para obtener el token de la DGII.",
+    "category": "Servicios DGII",
+    "lead": "Los servicios de facturación electrónica operan en pre-certificación, certificación y producción. Cada ambiente tiene una finalidad distinta y su propia URL base.",
+    "sections": [
+      {
+        "title": "Tres ambientes",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Ambiente",
+              "Uso"
+            ],
+            "rows": [
+              [
+                "TesteCF",
+                "Pruebas de adecuación e integración antes de la certificación."
+              ],
+              [
+                "CerteCF",
+                "Pruebas del proceso de certificación para validar la capacidad del sistema."
+              ],
+              [
+                "eCF",
+                "Operación productiva con validez fiscal."
+              ]
+            ]
+          },
+          {
+            "type": "p",
+            "text": "La descripción técnica de servicios distingue estos entornos y publica URL de autenticación separadas. Un resultado de prueba no debe confundirse con un envío de producción."
+          }
+        ]
+      },
+      {
+        "title": "Autenticación paso a paso",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Solicitar al servicio de autenticación un archivo XML `SemillaModel`.",
+              "Firmar la semilla con el certificado digital del contribuyente.",
+              "Enviar la semilla firmada al recurso de validación para recibir token, fecha de expedición y expiración.",
+              "Enviar el token en la cabecera `Authorization: Bearer` al llamar los servicios que lo requieren."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "La documentación describe una duración determinada para el token; usa siempre la fecha de expiración recibida en la respuesta en vez de fijar una duración en el cliente. SellerNet obtiene y renueva el token para sus operaciones."
+          }
+        ]
+      },
+      {
+        "title": "Preparar la aplicación",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Aísla por ambiente el certificado, las URLs y el estado de pruebas. Empieza en TesteCF, ejecuta el set de certificación en CerteCF y usa producción solo tras la autorización correspondiente."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "servicios",
+        "pages": "6–12"
+      },
+      {
+        "id": "certificacion",
+        "pages": "2–4"
+      }
+    ]
+  },
+  {
+    "slug": "envio-trackid-estados-ecf",
+    "title": "Envío de e-CF, TrackId y estados de validación",
+    "description": "Cómo interpretar la recepción técnica, el TrackId y los cinco estados documentados por la DGII para consultar un e-CF.",
+    "category": "Servicios DGII",
+    "lead": "Enviar un XML firmado no termina el proceso. La DGII devuelve un TrackId y ofrece servicios de consulta para conocer el resultado de la validación.",
+    "sections": [
+      {
+        "title": "Recepción y seguimiento",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "El servicio de recepción recibe el e-CF firmado junto a un token válido. Como respuesta entrega un `TrackId`, identificador que permite consultar el resultado posterior del documento. La DGII diferencia expresamente esta recepción del estado de validación satisfactorio."
+          },
+          {
+            "type": "p",
+            "text": "La consulta de resultado por TrackId devuelve datos como estado, e-NCF, RNC, fecha de recepción y mensajes. Los mensajes del servicio ayudan a explicar un rechazo y deben conservarse junto al identificador de seguimiento."
+          }
+        ]
+      },
+      {
+        "title": "Estados que importan",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Estado",
+              "Lectura práctica"
+            ],
+            "rows": [
+              [
+                "No encontrado (0)",
+                "La consulta no localiza el TrackId en sus registros."
+              ],
+              [
+                "Aceptado (1)",
+                "El e-CF es válido para fines tributarios."
+              ],
+              [
+                "Rechazado (2)",
+                "El comprobante no es válido para fines tributarios; revisa los mensajes."
+              ],
+              [
+                "En Proceso (3)",
+                "Todavía no termina la validación; consulta de nuevo más tarde."
+              ],
+              [
+                "Aceptado Condicional (4)",
+                "El e-CF tiene validez, pero presenta una observación que no ameritó rechazo."
+              ]
+            ]
+          },
+          {
+            "type": "note",
+            "text": "No marques una factura como aceptada solo porque recibiste un TrackId. Guarda el estado y los mensajes devueltos por la consulta."
+          }
+        ]
+      },
+      {
+        "title": "Excepción: factura de consumo menor de RD$250,000",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "La DGII indica que las facturas de consumo de tipo 32 bajo ese monto no entran al servicio ordinario de recepción de e-CF. Se envía un resumen RFCE mediante su servicio específico."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "servicios",
+        "pages": "22–25"
+      },
+      {
+        "id": "informe",
+        "pages": "9, 11–13"
+      },
+      {
+        "id": "certificacion",
+        "pages": "8–10"
+      }
+    ]
+  },
+  {
+    "slug": "factura-consumo-rfce",
+    "title": "Factura de consumo tipo 32 y resumen RFCE",
+    "description": "Cuándo enviar un resumen RFCE a la DGII, qué ocurre con el e-CF completo y cómo distinguir ambos XML.",
+    "category": "Documentos especiales",
+    "lead": "Para facturas de consumo electrónicas tipo 32 con monto inferior a RD$250,000, la DGII define un resumen XML RFCE que se envía por un servicio diferente del e-CF ordinario.",
+    "sections": [
+      {
+        "title": "Dos documentos con funciones distintas",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "La factura de consumo completa sigue el Formato de Comprobante Fiscal Electrónico. El emisor debe conservarla en su totalidad y disponer de un mecanismo electrónico para que sus clientes puedan consultarla. A la DGII se le remite el resumen RFCE, con su propio formato y XSD."
+          },
+          {
+            "type": "p",
+            "text": "La descripción técnica de servicios indica que las facturas tipo 32 por debajo del umbral no se reciben por el servicio ordinario de recepción e-CF; se usa la recepción de resumen de factura de consumo."
+          }
+        ]
+      },
+      {
+        "title": "Secuencia de implementación",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Generar y firmar el e-CF 32 completo para el receptor y conservarlo.",
+              "Construir el RFCE con los datos exigidos por el formato de resumen, validarlo con el XSD RFCE y firmarlo.",
+              "Enviar el resumen al servicio de recepción RFCE correspondiente al ambiente.",
+              "Registrar la respuesta y conservar la relación entre el e-CF completo y el resumen enviado."
+            ]
+          },
+          {
+            "type": "note",
+            "text": "El límite se expresa como monto inferior a RD$250,000. No trates el caso de RD$250,000 como si estuviera por debajo del umbral."
+          }
+        ]
+      },
+      {
+        "title": "En SellerNet",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Las herramientas del paquete permiten convertir un e-CF 32 firmado a su resumen y enviarlo mediante `SendSummaryAsync()`. La documentación muestra el flujo de uso y las validaciones incluidas."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "rfce",
+        "pages": "2–4"
+      },
+      {
+        "id": "servicios",
+        "pages": "12, 16–17"
+      },
+      {
+        "id": "xsd_rfce"
+      }
+    ]
+  },
+  {
+    "slug": "receptor-acuse-aprobacion-comercial",
+    "title": "Receptor electrónico: acuse y aprobación comercial",
+    "description": "Diferencia técnica entre el acuse ARECF y la aprobación comercial ACECF al recibir un e-CF.",
+    "category": "Documentos especiales",
+    "lead": "Recibir un e-CF crea dos respuestas posibles con significados diferentes. El acuse de recibo confirma la recepción; la aprobación comercial expresa conformidad o rechazo de la transacción.",
+    "sections": [
+      {
+        "title": "ARECF: recepción del documento",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "El formato de acuse de recibo de la DGII indica que el receptor debe responder al emisor para confirmar si recibió el e-CF. El acuse no equivale a aceptar o rechazar comercialmente la factura. Contiene el detalle del acuse y una firma digital que respalda su integridad y autenticidad."
+          },
+          {
+            "type": "p",
+            "text": "El estándar técnico para emisores describe servicios que el receptor electrónico debe exponer para recibir documentos y respuestas, y establece requisitos de accesibilidad y seguridad para esos servicios."
+          }
+        ]
+      },
+      {
+        "title": "ACECF: decisión comercial",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Después de la recepción, el comprador puede enviar aprobación o rechazo comercial al emisor. El formato ACECF contiene el detalle de esa decisión y su firma digital. La DGII especifica que la respuesta comercial es opcional y que, si se emite, se remite una copia a la DGII."
+          },
+          {
+            "type": "note",
+            "text": "Mantén separados el estado de validación de la DGII, el acuse de recepción del comprador y su decisión comercial. Responden preguntas diferentes."
+          }
+        ]
+      },
+      {
+        "title": "Diseño del flujo",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Verificar la firma y la estructura del XML recibido.",
+              "Registrar el documento y emitir el acuse firmado al emisor.",
+              "Procesar la revisión comercial de forma independiente.",
+              "Si hay aprobación o rechazo comercial, generar ACECF firmado y remitir la copia requerida."
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "acuse",
+        "pages": "3–4"
+      },
+      {
+        "id": "aprobacion",
+        "pages": "2–3"
+      },
+      {
+        "id": "emisores",
+        "pages": "6–7"
+      },
+      {
+        "id": "xsd_arecf"
+      },
+      {
+        "id": "xsd_acecf"
+      }
+    ]
+  },
+  {
+    "slug": "certificacion-emisor-electronico",
+    "title": "Proceso de certificación para ser emisor electrónico",
+    "description": "Etapas de solicitud, pruebas y autorización de la DGII para operar como emisor de comprobantes fiscales electrónicos.",
+    "category": "Operación",
+    "lead": "Tener una biblioteca que genere XML no autoriza por sí solo a emitir e-CF en producción. La DGII documenta un proceso de solicitud y certificación del contribuyente.",
+    "sections": [
+      {
+        "title": "Las etapas",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Solicitud para ser emisor electrónico mediante el formulario indicado por la DGII.",
+              "Pruebas de adecuación e integración en pre-certificación y postulación en el portal de certificación.",
+              "Set de pruebas para demostrar que el sistema puede operar con los servicios y formatos exigidos.",
+              "Autorización como emisor electrónico al completar satisfactoriamente el proceso."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "El documento de certificación distingue el sistema desarrollado internamente de uno adquirido a un proveedor y solicita datos del software durante la postulación. También indica que puede utilizarse el ambiente de pre-certificación para probar la integración antes de iniciar el set formal."
+          }
+        ]
+      },
+      {
+        "title": "Preparación técnica",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "En las pruebas de datos, el contribuyente descarga un set de datos en Excel, genera XML de e-CF con los campos y el orden indicados, y los remite para validación. El proceso también incluye un set de aprobaciones o rechazos comerciales. La postulación se genera como XML, se firma y se carga al portal antes de habilitar las pruebas. Conserva TrackId, estados y mensajes para depurar los casos rechazados."
+          },
+          {
+            "type": "note",
+            "text": "El procedimiento y los requisitos se rigen por la versión vigente publicada por la DGII. Este artículo resume el flujo del documento de certificación incluido en el archivo oficial del 22 de octubre de 2026."
+          }
+        ]
+      },
+      {
+        "title": "Papel del paquete",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "SellerNet ayuda con las operaciones técnicas de .NET. El contribuyente realiza su propia solicitud y obtiene la autorización de la DGII; el paquete no sustituye esa etapa."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "certificacion",
+        "pages": "2–10"
+      },
+      {
+        "id": "servicios",
+        "pages": "6–7"
+      }
+    ]
+  },
+  {
+    "slug": "contingencia-facturacion-electronica",
+    "title": "Contingencia en facturación electrónica: conectividad o imposibilidad de emitir",
+    "description": "Qué distingue la DGII entre falta de conectividad e imposibilidad técnica de emitir e-CF, y cómo preparar el sistema.",
+    "category": "Operación",
+    "lead": "La DGII documenta dos escenarios de contingencia con procedimientos diferentes. Conviene distinguirlos antes de diseñar colas, respaldos y procesos manuales.",
+    "sections": [
+      {
+        "title": "Si falta conectividad",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Cuando el emisor puede generar e-CF pero no enviarlos por falta o intermitencia de conectividad, el instructivo indica emitirlos fuera de línea y remitirlos a la DGII al restablecer la conexión en un plazo no mayor de 72 horas. La representación impresa al cliente debe identificar la modalidad de contingencia."
+          },
+          {
+            "type": "p",
+            "text": "Técnicamente, esto requiere guardar XML y firmas sin alterarlos, registrar el momento de emisión y mantener una cola confiable para el posterior envío y seguimiento de estados."
+          }
+        ]
+      },
+      {
+        "title": "Si no puede emitir e-CF",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Cuando existe imposibilidad técnica de emitir, el instructivo prevé notificar la entrada en contingencia por Oficina Virtual, entregar comprobantes fiscales no electrónicos autorizados y realizar acciones para restablecer la emisión. Describe modalidades total y parcial, y fija un máximo de 15 días calendario para esta contingencia."
+          },
+          {
+            "type": "note",
+            "text": "El instructivo establece plazos y condiciones diferentes para cada escenario. Consulta el documento oficial antes de activar un procedimiento operativo o fijar tiempos automáticos."
+          }
+        ]
+      },
+      {
+        "title": "Preparación del sistema",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Separar el fallo de transporte de la imposibilidad de generar y firmar documentos.",
+              "Registrar envíos pendientes, respuestas y reintentos sin crear e-NCF duplicados.",
+              "Permitir conciliación al recuperar conectividad y conservar trazabilidad de la contingencia."
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "contingencia",
+        "pages": "5–6, 11"
+      }
+    ]
+  },
+  {
+    "slug": "anulacion-secuencias-encf",
+    "title": "Anulación de secuencias e-NCF: cuándo usar ANECF",
+    "description": "Distingue una secuencia no usada de un e-CF ya enviado y conoce la función del XML ANECF de la DGII.",
+    "category": "Documentos especiales",
+    "lead": "El formato ANECF sirve para informar la anulación de secuencias e-NCF no utilizadas o de documentos que no fueron enviados a la DGII ni al receptor.",
+    "sections": [
+      {
+        "title": "La decisión clave",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "La DGII permite anular una secuencia autorizada mediante ANECF si no se ha usado o si la factura emitida no fue enviada a la DGII ni al receptor. Si la factura ya fue enviada a cualquiera de ellos, el formato oficial indica anular la operación mediante una Nota de Crédito Electrónica, siguiendo el formato e-CF."
+          },
+          {
+            "type": "note",
+            "text": "No uses ANECF para intentar borrar un e-CF que ya circuló. Revisa primero el historial de envío y recepción de esa secuencia."
+          }
+        ]
+      },
+      {
+        "title": "Qué contiene ANECF",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "Encabezado con identificación del emisor, cantidad de secuencias y fecha de generación.",
+              "Detalle con el tipo de e-CF y las secuencias o rangos a anular.",
+              "Firma digital que acredita integridad del archivo y autenticidad del emisor."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "El formato y el XSD ANECF definen tags, repeticiones y validaciones concretas. Antes de firmar, calcula el total reportado a partir del detalle; el documento oficial exige coherencia entre ambas partes."
+          }
+        ]
+      },
+      {
+        "title": "En .NET",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "SellerNet expone la operación de envío `VoidEncfAsync()` para el XML ANECF firmado. La decisión de anular una secuencia o emitir una nota de crédito debe tomarse a partir del estado real del comprobante."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "anulacion",
+        "pages": "3–5"
+      },
+      {
+        "id": "xsd_anecf"
+      },
+      {
+        "id": "formato",
+        "pages": "4–5"
+      }
+    ]
+  }
+]

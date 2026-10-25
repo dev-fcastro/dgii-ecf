@@ -1,0 +1,104 @@
+{
+  "informe": {
+    "title": "Informe Técnico e-CF v1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Informe%20y%20Descripci%C3%B3n%20T%C3%A9cnica/Informe%20T%C3%A9cnico%20e-CF%20v1.0.pdf",
+    "sha256": "76D9D8C7D3C0988CBFE7891479FED490682F2761ECDA7931A1C34CECD408129E",
+    "archivePath": "Informe y Descripción Técnica/Informe Técnico e-CF v1.0.pdf"
+  },
+  "formato": {
+    "title": "Formato Comprobante Fiscal Electrónico (e-CF) V1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Formatos%20XML/Formato%20Comprobante%20Fiscal%20Electr%C3%B3nico%20(e-CF)%20V1.0.pdf",
+    "sha256": "C811C91A9E6A61A65D0637920CEA51EF474160D7CD7BC7087FBF895597E17D5A",
+    "archivePath": "Formatos XML/Formato Comprobante Fiscal Electrónico (e-CF) V1.0.pdf"
+  },
+  "servicios": {
+    "title": "Descripcion Tecnica Servicios DGII",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Informe%20y%20Descripci%C3%B3n%20T%C3%A9cnica/Descripcion%20Tecnica%20Servicios%20DGII.pdf",
+    "sha256": "85A601FFE4AF67AD2220E52D669BC673FC8AFFE02FEB464BF04DABD4FE2F67CE",
+    "archivePath": "Informe y Descripción Técnica/Descripcion Tecnica Servicios DGII.pdf"
+  },
+  "emisores": {
+    "title": "Descripcion Tecnica Emisores Electronicos",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Informe%20y%20Descripci%C3%B3n%20T%C3%A9cnica/Descripcion%20Tecnica%20Emisores%20Electronicos.pdf",
+    "sha256": "D532598461FC65BB731D37B32D57AF83763649921A91AEB9D5C93359834E41A1",
+    "archivePath": "Informe y Descripción Técnica/Descripcion Tecnica Emisores Electronicos.pdf"
+  },
+  "firma": {
+    "title": "Firmado de e-CF",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Instructivos%20sobre%20Facturaci%C3%B3n%20Electr%C3%B3nica/Firmado%20de%20e-CF.pdf",
+    "sha256": "BB32BB04C170AC3E954166414DAE583B28C4E3314578ACDD532D15119D04B98E",
+    "archivePath": "Instructivos sobre Facturación Electrónica/Firmado de e-CF.pdf"
+  },
+  "rfce": {
+    "title": "Formato Resumen Factura Consumo Electrónica v1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Formatos%20XML/Formato%20Resumen%20Factura%20Consumo%20Electr%C3%B3nica%20v1.0.pdf",
+    "sha256": "24F650B527A37FB6A8DEB2D985C14DADE1DB6BE62113FA47D2BD0C066565E0E8",
+    "archivePath": "Formatos XML/Formato Resumen Factura Consumo Electrónica v1.0.pdf"
+  },
+  "acuse": {
+    "title": "Formato Acuse de Recibo v 1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Formatos%20XML/Formato%20Acuse%20de%20Recibo%20v%201.0.pdf",
+    "sha256": "D48713B803461B4BCECA22A52C7C62B5ECBF5FF861457FED9BD2666EBD93D2B0",
+    "archivePath": "Formatos XML/Formato Acuse de Recibo v 1.0.pdf"
+  },
+  "aprobacion": {
+    "title": "Formato Aprobación Comercial v1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Formatos%20XML/Formato%20Aprobaci%C3%B3n%20Comercial%20v1.0.pdf",
+    "sha256": "2FEDE306878C730A234210CAC3192B92A02AA0841CB979D08F9C36FC273B0D22",
+    "archivePath": "Formatos XML/Formato Aprobación Comercial v1.0.pdf"
+  },
+  "certificacion": {
+    "title": "Proceso de Certificacion para ser Emisor Electronico",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Documentaciones%20Proceso%20de%20Certificaci%C3%B3n%20FE/Proceso%20de%20Certificacion%20para%20ser%20Emisor%20Electronico.pdf",
+    "sha256": "1E4E53BDE9F87DC9F0852E36B2E8819379E5444ED9A31501C9A8C7C321CBE6C1",
+    "archivePath": "Documentaciones Proceso de Certificación FE/Proceso de Certificacion para ser Emisor Electronico.pdf"
+  },
+  "contingencia": {
+    "title": "Instructivo de Contingencia de FE",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Instructivos%20sobre%20Facturaci%C3%B3n%20Electr%C3%B3nica/Instructivo%20de%20Contingencia%20de%20FE.pdf",
+    "sha256": "F8CC0113C710245560B17C757D07DD2031086E82BC6FF127425599E8AC9CCD98",
+    "archivePath": "Instructivos sobre Facturación Electrónica/Instructivo de Contingencia de FE.pdf"
+  },
+  "anulacion": {
+    "title": "Formato Anulación de e-NCF v1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Formatos%20XML/Formato%20Anulaci%C3%B3n%20de%20e-NCF%20v1.0.pdf",
+    "sha256": "A4F58709C05C3D149D45F7EF90E8A4E646AF10A048AC590BC20038182547567F",
+    "archivePath": "Formatos XML/Formato Anulación de e-NCF v1.0.pdf"
+  },
+  "xsd31": {
+    "title": "e-CF 31 v.1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Documentaci%C3%B3n%20T%C3%A9cnica%20(XSD)/e-CF%2031%20v.1.0.xsd",
+    "sha256": "6F2909A93D84919518D2AE3C77FEAD4B35C3E8C95996B8AF67B0040C2E2BE298",
+    "archivePath": "Documentación Técnica (XSD)/e-CF 31 v.1.0.xsd"
+  },
+  "xsd32": {
+    "title": "e-CF 32 v.1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Documentaci%C3%B3n%20T%C3%A9cnica%20(XSD)/e-CF%2032%20v.1.0.xsd",
+    "sha256": "151676DF03C61335B4AC1ECA97F99395488D57EA92793B49353602871E651F3C",
+    "archivePath": "Documentación Técnica (XSD)/e-CF 32 v.1.0.xsd"
+  },
+  "xsd_rfce": {
+    "title": "RFCE 32 v.1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Documentaci%C3%B3n%20T%C3%A9cnica%20(XSD)/RFCE%2032%20v.1.0.xsd",
+    "sha256": "6AAD535875661B05EEF072963295202FC94B3B320B257791FEB8D3C39A5F8EE6",
+    "archivePath": "Documentación Técnica (XSD)/RFCE 32 v.1.0.xsd"
+  },
+  "xsd_arecf": {
+    "title": "ARECF v1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Documentaci%C3%B3n%20T%C3%A9cnica%20(XSD)/ARECF%20v1.0.xsd",
+    "sha256": "C6D186167159110959EB3F54706ECC7462AD9128FC2C3E03440C8352B1C66F10",
+    "archivePath": "Documentación Técnica (XSD)/ARECF v1.0.xsd"
+  },
+  "xsd_acecf": {
+    "title": "ACECF v.1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Documentaci%C3%B3n%20T%C3%A9cnica%20(XSD)/ACECF%20v.1.0.xsd",
+    "sha256": "072F65DE202DF8EC136A8D4493E0592172690A4E181047245401CC2E7B23C095",
+    "archivePath": "Documentación Técnica (XSD)/ACECF v.1.0.xsd"
+  },
+  "xsd_anecf": {
+    "title": "ANECF v.1.0",
+    "url": "https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Documentacin%20sobre%20eCF/Documentaci%C3%B3n%20T%C3%A9cnica%20(XSD)/ANECF%20v.1.0.xsd",
+    "sha256": "AF2E6A16C2900DFA55264D6EBEC58CCBBBB25C1EB9821EE18CCC44FC142D0E78",
+    "archivePath": "Documentación Técnica (XSD)/ANECF v.1.0.xsd"
+  }
+}

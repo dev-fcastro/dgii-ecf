@@ -25,6 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/guides.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -73,6 +74,7 @@
         <li><a href="/#como">Cómo funciona</a></li>
         <li><a href="/#metodos">Métodos</a></li>
         <li><a href="/docs">Documentación</a></li>
+        <li><a href="/guias">Guías DGII</a></li>
       </ul>
       <div class="nav-cta">
         <a class="btn-ghost" href="https://github.com/dev-fcastro/dgii-ecf" target="_blank" rel="noopener"><i></i><i></i><i></i><i></i>GitHub</a>
@@ -87,6 +89,7 @@
     <a href="/#como">Cómo funciona</a>
     <a href="/#metodos">Métodos</a>
     <a href="/docs">Documentación</a>
+    <a href="/guias">Guías DGII</a>
     <a href="https://github.com/dev-fcastro/dgii-ecf" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.nuget.org/packages/DgiiEcf" target="_blank" rel="noopener">NuGet</a>
   </div>
@@ -107,6 +110,7 @@
           <span><b>.NET 8</b> + <b>.NET 10</b></span>
           <span>Licencia <b>MIT</b></span>
           <span>e-CF · DGII · República Dominicana</span>
+          <span><a href="https://www.nuget.org/packages/DgiiEcf" target="_blank" rel="noopener"><b data-nuget-downloads>—</b> descargas en NuGet ↗</a></span>
           <span>por <a href="https://www.fcastro.site" target="_blank" rel="noopener"><b>fcastro</b></a></span>
         </div>
       </div>
@@ -258,10 +262,10 @@
           <p class="caps muted">Menos código de integración y un solo lugar para trabajar con la DGII. Incluye las mejoras de <b>dgii-ecf 1.8.5</b>: errores con el mensaje real del servicio, directorio uniforme, hora dominicana de 24 horas y firma XML con raíz automática.</p>
         </div>
         <div class="effect-grid">
-          <div class="stat big"><b><span data-count="1">0</span><sup>paquete</sup></b><span class="caps">emisor, receptor, firma, consultas y herramientas</span></div>
+          <a class="stat big downloads" href="https://www.nuget.org/packages/DgiiEcf" target="_blank" rel="noopener" aria-label="Ver las descargas acumuladas de DgiiEcf en NuGet"><span class="caps">Descargas acumuladas de DgiiEcf</span><b data-nuget-downloads aria-live="polite">—</b><span class="caps">cifra publicada por NuGet, actualizada al cargar ↗</span></a>
+          <div class="stat"><b><span data-count="1">0</span></b><span class="caps">paquete para emisor, receptor, firma y consultas</span></div>
           <div class="stat"><b><span data-count="5">0</span></b><span class="caps">documentos tipados con el orden del XSD</span></div>
           <div class="stat"><b><span data-count="3">0</span></b><span class="caps">ambientes DGII: TesteCF, CerteCF y eCF</span></div>
-          <a class="stat downloads" href="https://www.nuget.org/packages/DgiiEcf" target="_blank" rel="noopener" aria-label="Ver las descargas de DgiiEcf en NuGet"><b id="nuget-downloads">—</b><span class="caps">descargas totales en NuGet ↗</span></a>
         </div>
       </div>
     </div>
@@ -288,6 +292,20 @@
           <div class="op"><small>Receptor</small><h3>Semilla y token JWT</h3><code>GenerateSeed() · ValidateSignedSeed()</code></div>
           <div class="op"><small>Receptor</small><h3>Acuse de recibo</h3><code>BuildSignedReceiptAcknowledgement()</code></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="guias" class="guide-home-section">
+    <div class="frame">
+      <div class="guide-home-head">
+        <div><span class="guide-eyebrow">Aprende con fuentes oficiales</span><h2>De la factura al XML.</h2></div>
+        <a href="/guias">Explorar las 11 guías DGII ↗</a>
+      </div>
+      <div class="guide-grid">
+        <a class="guide-card" href="/guias/que-es-facturacion-electronica"><span class="guide-card-kind">Fundamentos</span><h3>¿Qué es la facturación electrónica?</h3><p>Actores, e-CF, e-NCF y recorrido de una factura desde el emisor hasta su validación.</p><span class="guide-card-link">Leer guía ↗</span></a>
+        <a class="guide-card" href="/guias/estructura-xml-ecf"><span class="guide-card-kind">XML y firma</span><h3>Estructura XML de un e-CF</h3><p>Secciones, campos obligatorios y validación con los XSD publicados por la DGII.</p><span class="guide-card-link">Leer guía ↗</span></a>
+        <a class="guide-card" href="/guias/envio-trackid-estados-ecf"><span class="guide-card-kind">Servicios DGII</span><h3>Envío, TrackId y estados</h3><p>Cómo distinguir la recepción técnica de un comprobante aceptado por la DGII.</p><span class="guide-card-link">Leer guía ↗</span></a>
       </div>
     </div>
   </section>
@@ -345,6 +363,7 @@
         <li><a href="/#como">Cómo funciona</a></li>
         <li><a href="/#metodos">Métodos</a></li>
         <li><a href="/docs">Documentación</a></li>
+        <li><a href="/guias">Guías DGII</a></li>
       </ul></div>
     </div>
   </div>

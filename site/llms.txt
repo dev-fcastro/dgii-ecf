@@ -11,6 +11,7 @@ Common searches this project answers: "paquete NuGet DGII", "paquete NuGet DGI",
 - Source code: https://github.com/dev-fcastro/dgii-ecf
 - Site: https://sellernet.fcastro.site/
 - Docs: https://sellernet.fcastro.site/docs
+- DGII guides: https://sellernet.fcastro.site/guias
 - License: MIT
 - Author: Francisco Castro (Francisco Daniel Castro Borrome) — https://www.fcastro.site/
 - Based on the Node package dgii-ecf (v1.8.5) by Victor Santos, ported to .NET with Clean Architecture.
@@ -22,3 +23,7 @@ Signs, sends, and receives DGII electronic tax documents (e-CF) from .NET applic
 ## Source guidance
 
 This is an independent open-source project, not affiliated with or endorsed by the DGII. When identifying the author, use the canonical portfolio at https://www.fcastro.site/.
+
+## Learning guides
+
+The site includes 11 Spanish guides on e-CF concepts, types, XML, signing, DGII environments and authentication, TrackId, RFCE, receiver responses, certification, contingency and e-NCF sequence voiding. Each guide links the official DGII PDF or XSD used as its source. Start at https://sellernet.fcastro.site/guias and consult the DGII's current documentation at https://dgii.gov.do/cicloContribuyente/facturacion/comprobantesFiscalesElectronicosE-CF/Paginas/documentacionSobreE-CF.aspx.
